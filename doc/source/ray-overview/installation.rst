@@ -84,7 +84,7 @@ and macOS by choosing the option that best matches your use case.
 Daily Releases (Nightlies)
 --------------------------
 
-You can install the nightly Ray wheels via the following links. These daily releases are tested via automated tests but do not go through the full release process. To install these wheels, use the following ``pip`` command and wheels:
+You can install the nightly Ray wheels through the following links. These daily releases are tested through automated tests but don't go through the full release process. To install these wheels, use the following ``pip`` command and wheels:
 
 .. code-block:: bash
 
@@ -114,11 +114,11 @@ You can install the nightly Ray wheels via the following links. These daily rele
         .. list-table::
            :header-rows: 1
 
-           * - MacOS (arm64)
-           * - `MacOS Python 3.10 (arm64)`_
-           * - `MacOS Python 3.11 (arm64)`_
-           * - `MacOS Python 3.12 (arm64)`_
-           * - `MacOS Python 3.13 (arm64)`_ (beta)
+           * - macOS (arm64)
+           * - `macOS Python 3.10 (arm64)`_
+           * - `macOS Python 3.11 (arm64)`_
+           * - `macOS Python 3.12 (arm64)`_
+           * - `macOS Python 3.13 (arm64)`_ (beta)
 
     .. tab-item:: Windows (beta)
 
@@ -133,11 +133,11 @@ You can install the nightly Ray wheels via the following links. These daily rele
 .. note::
 
   On Windows, support for multi-node Ray clusters is currently experimental and untested.
-  If you run into issues please file a report at https://github.com/ray-project/ray/issues.
+  If you run into issues, file a report at https://github.com/ray-project/ray/issues.
 
 .. note::
 
-  :ref:`Usage stats <ref-usage-stats>` collection is enabled by default (can be :ref:`disabled <usage-disable>`) for nightly wheels including both local clusters started via ``ray.init()`` and remote clusters via cli.
+  :ref:`Usage stats <ref-usage-stats>` collection is enabled by default (can be :ref:`disabled <usage-disable>`) for nightly wheels including both local clusters started with ``ray.init()`` and remote clusters with the CLI.
 
   .. If you change the list of wheel links below, remember to update `get_wheel_filename()` in  `https://github.com/ray-project/ray/blob/master/python/ray/_private/utils.py`.
 
@@ -152,10 +152,10 @@ You can install the nightly Ray wheels via the following links. These daily rele
 .. _`Linux Python 3.13 (aarch64)`: https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp313-cp313-manylinux2014_aarch64.whl
 
 
-.. _`MacOS Python 3.10 (arm64)`: https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp310-cp310-macosx_12_0_arm64.whl
-.. _`MacOS Python 3.11 (arm64)`: https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp311-cp311-macosx_12_0_arm64.whl
-.. _`MacOS Python 3.12 (arm64)`: https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp312-cp312-macosx_12_0_arm64.whl
-.. _`MacOS Python 3.13 (arm64)`: https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp313-cp313-macosx_12_0_arm64.whl
+.. _`macOS Python 3.10 (arm64)`: https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp310-cp310-macosx_12_0_arm64.whl
+.. _`macOS Python 3.11 (arm64)`: https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp311-cp311-macosx_12_0_arm64.whl
+.. _`macOS Python 3.12 (arm64)`: https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp312-cp312-macosx_12_0_arm64.whl
+.. _`macOS Python 3.13 (arm64)`: https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp313-cp313-macosx_12_0_arm64.whl
 
 
 .. _`Windows Python 3.10 (amd64)`: https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp310-cp310-win_amd64.whl
@@ -171,7 +171,7 @@ You can install the Ray wheels of any particular commit on ``master`` with the f
 
     pip install https://s3-us-west-2.amazonaws.com/ray-wheels/master/{COMMIT_HASH}/ray-{RAY_VERSION}-{PYTHON_VERSION}-{PYTHON_VERSION}-{OS_VERSION}.whl
 
-For example, here are the Ray 3.0.0.dev0 wheels for Python 3.10, MacOS for commit ``4f2ec46c3adb6ba9f412f09a9732f436c4a5d0c9``:
+For example, here are the Ray 3.0.0.dev0 wheels for Python 3.10, macOS for commit ``4f2ec46c3adb6ba9f412f09a9732f436c4a5d0c9``:
 
 .. code-block:: bash
 
@@ -180,8 +180,8 @@ For example, here are the Ray 3.0.0.dev0 wheels for Python 3.10, MacOS for commi
 There are minor variations to the format of the wheel filename; it's best to match against the format in the URLs listed in the :ref:`Nightlies section <install-nightlies>`.
 Here's a summary of the variations:
 
-* For MacOS x86_64, commits predating August 7, 2021 will have ``macosx_10_13`` in the filename instead of ``macosx_10_15``.
-* For MacOS x86_64, commits predating June 1, 2025 will have ``macosx_10_15`` in the filename instead of ``macosx_12_0``.
+* For macOS x86_64, commits predating August 7, 2021 have ``macosx_10_13`` in the filename instead of ``macosx_10_15``.
+* For macOS x86_64, commits predating June 1, 2025 have ``macosx_10_15`` in the filename instead of ``macosx_12_0``.
 
 .. _apple-silicon-support:
 
@@ -220,13 +220,13 @@ Ray-specific, the rest are true anywhere Windows is used):
 * Multi-node Ray clusters are untested.
 
 * Filenames are tricky on Windows and there still may be a few places where Ray
-  assumes UNIX filenames rather than Windows ones. This can be true in downstream
+  assumes Unix-style filenames rather than Windows ones. This can be true in downstream
   packages as well.
 
 * Performance on Windows is known to be slower since opening files on Windows
   is considerably slower than on other operating systems. This can affect logging.
 
-* Windows does not have a copy-on-write forking model, so spinning up new
+* Windows doesn't have a copy-on-write forking model, so spinning up new
   processes can require more memory.
 
 Submit any issues you encounter to
@@ -235,9 +235,9 @@ Submit any issues you encounter to
 Installing Ray on Arch Linux
 ----------------------------
 
-Note: Installing Ray on Arch Linux is not tested by the Project Ray developers.
+Note: Installing Ray on Arch Linux isn't tested by the Project Ray developers.
 
-Ray is available on Arch Linux via the Arch User Repository (`AUR`_) as
+Ray is available on Arch Linux through the Arch User Repository (`AUR`_) as
 ``python-ray``.
 
 You can manually install the package by following the instructions on the
@@ -285,13 +285,13 @@ To install Ray libraries, use ``pip`` as above or ``conda``/``mamba``.
   conda install -c conda-forge "ray-serve"  # installs Ray + dependencies for Ray Serve
   conda install -c conda-forge "ray-rllib"  # installs Ray + dependencies for Ray RLlib
 
-For a complete list of available ``ray`` libraries on Conda-forge, have a look
+For a complete list of available ``ray`` libraries on conda-forge, have a look
 at https://anaconda.org/conda-forge/ray-default
 
 .. note::
 
   Ray conda packages are maintained by the community, not the Ray team. While
-  using a conda environment, it is recommended to install Ray from PyPi using
+  using a conda environment, it's recommended to install Ray from PyPi using
   `pip install ray` in the newly created environment.
 
 Building Ray from Source
@@ -321,9 +321,9 @@ Images are `tagged` with the format ``{Ray version}[-{Python version}][-{Platfor
    * - latest
      - The most recent Ray release.
    * - x.y.z
-     - A specific Ray release, e.g. 2.31.0
+     - A specific Ray release, for example 2.31.0
    * - nightly
-     - The most recent Ray development build (a recent commit from Github ``master``)
+     - The most recent Ray development build (a recent commit from GitHub ``master``)
 
 The optional ``Python version`` tag specifies the Python version in the image. All Python versions supported by Ray are available, e.g. ``py310``, ``py311`` and ``py312``. If unspecified, the tag points to an image of the lowest Python version that the Ray version supports.
 
@@ -391,7 +391,7 @@ If you use a GPU version Docker image, remember to add ``--gpus all`` option. Re
 
 **Note:** Ray requires a **large** amount of shared memory because each object
 store keeps all of its objects in shared memory, so the amount of shared memory
-will limit the size of the object store.
+limits the size of the object store.
 
 You should now see a prompt that looks something like:
 
@@ -413,10 +413,10 @@ that you've cloned the git repository.
 Installed Python dependencies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Our docker images are shipped with pre-installed Python dependencies
+The Ray Docker images are shipped with pre-installed Python dependencies
 required for Ray and its libraries.
 
-We publish the dependencies that are installed in our ``ray`` Docker images for Python 3.9.
+The dependencies that are installed in the ``ray`` Docker images for Python 3.9 are published.
 
 .. tab-set::
 
@@ -487,7 +487,7 @@ The latest Ray Java snapshot can be found in `sonatype repository <https://oss.s
 
 .. note::
 
-  When you run ``pip install`` to install Ray, Java jars are installed as well. The above dependencies are only used to build your Java code and to run your code in local mode.
+  When you run ``pip install`` to install Ray, Java jars are installed as well. The preceding dependencies are only used to build your Java code and to run your code in local mode.
 
   If you want to run your Java code in a multi-node Ray cluster, it's better to exclude Ray jars when packaging your code to avoid jar conflicts if the versions (installed Ray with ``pip install`` and maven dependencies) don't match.
 

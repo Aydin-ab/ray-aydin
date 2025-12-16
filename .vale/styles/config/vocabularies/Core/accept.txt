@@ -11,3 +11,9 @@ backupCount
 DAG
 NCCL
 RPC
+onboarding
+microbatching
+miniforge
+conda
+Nightlies
+AUR

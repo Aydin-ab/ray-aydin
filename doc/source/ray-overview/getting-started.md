@@ -354,7 +354,7 @@ Learn more about Ray RLlib
 ## Ray Core Quickstart
 
 <a href="https://console.anyscale.com/register/ha?render_flow=ray&utm_source=ray_docs&utm_medium=docs&utm_campaign=ray-core-quickstart&redirectTo=/v2/template-preview/workspace-intro">
-    <img src="../_static/img/run-on-anyscale.svg" alt="try-anyscale-quickstart-ray-quickstart">
+    <img src="../_static/img/run-on-anyscale.svg" alt="try-Anyscale-quickstart-ray-quickstart">
 </a>
 <br></br>
 
@@ -769,8 +769,8 @@ Ray has a rich ecosystem of resources to help you learn more about distributed c
 ### Blog and Press
 
 - [Modern Parallel and Distributed Python: A Quick Tutorial on Ray](https://medium.com/data-science/modern-parallel-and-distributed-python-a-quick-tutorial-on-ray-99f8d70369b8)
-- [Why Every Python Developer Will Love Ray](https://www.datanami.com/2019/11/05/why-every-python-developer-will-love-ray/)
-- [Ray: A Distributed System for AI (Berkeley Artificial Intelligence Research, BAIR)](http://bair.berkeley.edu/blog/2018/01/09/ray/)
+- [Why Python Developers Love Ray](https://www.datanami.com/2019/11/05/why-every-python-developer-will-love-ray/)
+- [Ray: A Distributed System for AI (Berkeley Artificial Intelligence Research)](http://bair.berkeley.edu/blog/2018/01/09/ray/)
 - [10x Faster Parallel Python Without Python Multiprocessing](https://medium.com/data-science/10x-faster-parallel-python-without-python-multiprocessing-e5017c93cce1)
 - [Implementing A Parameter Server in 15 Lines of Python with Ray](https://ray-project.github.io/2018/07/15/parameter-server-in-fifteen-lines.html)
 - [Ray Distributed AI Framework Curriculum](https://rise.cs.berkeley.edu/blog/ray-intel-curriculum/)
@@ -780,7 +780,7 @@ Ray has a rich ecosystem of resources to help you learn more about distributed c
 - [Cutting edge hyperparameter tuning with Ray Tune](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf)
 - [New Library Targets High Speed Reinforcement Learning](https://www.datanami.com/2018/02/01/rays-new-library-targets-high-speed-reinforcement-learning/)
 - [Scaling Multi Agent Reinforcement Learning](http://bair.berkeley.edu/blog/2018/12/12/rllib/)
-- [Functional RL with Keras and Tensorflow Eager](https://bair.berkeley.edu/blog/2019/10/14/functional-rl/)
+- [Functional RL with Keras and TensorFlow Eager](https://bair.berkeley.edu/blog/2019/10/14/functional-rl/)
 - [How to Speed up Pandas by 4x with one line of code](https://www.kdnuggets.com/2019/11/speed-up-pandas-4x.html)
 - [Quick Tip—Speed up Pandas using Modin](https://ericbrown.com/quick-tip-speed-up-pandas-using-modin.htm)
 - [Ray Blog](https://medium.com/distributed-computing-with-ray)

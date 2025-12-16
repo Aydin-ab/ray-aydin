@@ -1,6 +1,7 @@
 # Use 'API' judiciously: https://developers.google.com/style/word-list#api.
 [Aa]pplication
 [Aa]sync
+autosummary
 [Cc]odec
 [Cc]omposable
 [Dd]eduplicate(s)?
@@ -8,8 +9,17 @@
 [Dd]etokenization
 [Dd]etokenizer?s?
 [Dd]ict(s)?
+docstring(s)?
+endblock
+endfor
+endif
 [Ee]xoshuffle
+failover
+fullname
 [Gg]rafana
+inlined
+Joblib
+joblib
 [Ii]nteroperates
 [Ii]nterpretability
 [Mm]ultimodal
@@ -37,6 +47,7 @@ BTS
 bursty
 chatbot
 CLI
+Colab
 configs
 CPU(s)?
 CRD(s)?
@@ -86,6 +97,7 @@ Nsight
 NumPy
 NVIDIA
 NVLink
+Oozie
 OOM
 open-source
 PACK
@@ -107,6 +119,7 @@ SageMaker
 serverless
 SFT
 ShareGPT
+[s|S]hopify
 SLA
 SLAs
 SSE
@@ -115,6 +128,7 @@ Softmax
 streamable
 subprocess
 teardown
+Tecton
 tiktoken
 tokenization
 uncaptured

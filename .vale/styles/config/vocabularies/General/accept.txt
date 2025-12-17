@@ -50,7 +50,7 @@ Alpaca
 Anyscale
 API(s)?
 ARM
-async
+[Aa]sync
 autoscales
 bool
 breakpoint
@@ -114,7 +114,7 @@ NVLink
 Oozie
 (?i)oom
 open-source
-PACK
+(?i)pack
 PDB
 Perfetto
 (?i)pid
@@ -124,7 +124,6 @@ preemptible
 pretraining
 productionize
 Pythonic
-QPS
 Quantizing
 Quickstarts
 Qwen
@@ -133,7 +132,7 @@ reduce_scatter
 retrigger
 RISECamp
 RLHF
-rollouts
+(?i)rollouts
 SageMaker
 SDK(s)?
 serverless

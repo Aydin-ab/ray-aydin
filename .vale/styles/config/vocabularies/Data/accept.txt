@@ -33,6 +33,7 @@ process_file
 queryable
 RGB
 runai
+RunAI
 [Ss]calers
 Spotify('s)?
 TFRecord(s)?

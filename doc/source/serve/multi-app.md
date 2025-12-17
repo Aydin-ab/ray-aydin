@@ -5,16 +5,16 @@ Serve supports deploying multiple independent Serve applications. This user guid
 
 ## Context
 ### Background 
-With the introduction of multi-application Serve, we walk you through the new concept of applications and when you should choose to deploy a single application versus multiple applications per cluster. 
+With the introduction of multi-application Serve, this guide walks you through the new concept of applications and when you should choose to deploy a single application versus multiple applications per cluster. 
 
-An application consists of one or more deployments. The deployments in an application are tied into a directed acyclic graph through [model composition](serve-model-composition). An application can be called via HTTP at the specified route prefix, and the ingress deployment handles all such inbound traffic. Due to the dependence between deployments in an application, one application is a unit of upgrade. 
+An application consists of one or more deployments. The deployments in an application are tied into a directed acyclic graph through [model composition](serve-model-composition). An application can be called through HTTP at the specified route prefix, and the ingress deployment handles all such inbound traffic. Due to the dependence between deployments in an application, one application is a unit of upgrade. 
 
 ### When to use multiple applications
 You can solve many use cases by using either model composition or multi-application. However, both have their own individual benefits and can be used together.
 
-Suppose you have multiple models and/or business logic that all need to be executed for a single request. If they are living in one repository, then you most likely upgrade them as a unit, so we recommend having all those deployments in one application.
+Suppose you have multiple models and/or business logic that all need to be executed for a single request. If they're living in one repository, then you most likely upgrade them as a unit, so having all those deployments in one application is recommended.
 
-On the other hand, if these models or business logic have logical groups, for example, groups of models that communicate with each other but live in different repositories, we recommend separating the models into applications. Another common use-case for multiple applications is separate groups of models that may not communicate with each other, but you want to co-host them to increase hardware utilization. Because one application is a unit of upgrade, having multiple applications allows you to deploy many independent models (or groups of models) each behind different endpoints. You can then easily add or delete applications from the cluster as well as upgrade applications independently of each other.
+On the other hand, if these models or business logic have logical groups, for example, groups of models that communicate with each other but live in different repositories, separating the models into applications is recommended. Another common use-case for multiple applications is separate groups of models that may not communicate with each other, but you want to co-host them to increase hardware utilization. Because one application is a unit of upgrade, having multiple applications allows you to deploy many independent models (or groups of models) each behind different endpoints. You can then easily add or delete applications from the cluster as well as upgrade applications independently of each other.
 
 ## Getting started
 
@@ -153,7 +153,7 @@ applications:
 ```
 
 ### Send requests between applications
-You can also make calls between applications without going through HTTP by using the Serve API `serve.get_app_handle` to get a handle to any live Serve application on the cluster. This handle can be used to directly execute a request on an application. Take the classifier and translator app above as an example. You can modify the `__call__` method of the `ImageClassifier` to check for another parameter in the HTTP request, and send requests to the translator application.
+You can also make calls between applications without going through HTTP by using the Serve API `serve.get_app_handle` to get a handle to any live Serve application on the cluster. This handle can be used to directly execute a request on an application. Take the classifier and translator app preceding as an example. You can modify the `__call__` method of the `ImageClassifier` to check for another parameter in the HTTP request, and send requests to the translator application.
 
 ```{literalinclude} doc_code/image_classifier_example.py
 :language: python
@@ -210,5 +210,5 @@ Migrating the single-application config `ServeApplicationSchema` to the multi-ap
 For more details on the multi-application config format, see the documentation for [`ServeDeploySchema`](serve-rest-api-config-schema).
 
 :::{note} 
-You must remove `host` and `port` from the application entry. In a multi-application config, specifying cluster-level options within an individual application isn't applicable, and is not supported.
+You must remove `host` and `port` from the application entry. In a multi-application config, specifying cluster-level options within an individual application isn't applicable, and isn't supported.
 :::

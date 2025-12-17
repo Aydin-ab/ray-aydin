@@ -9,6 +9,7 @@ autosummary
 [Dd]etokenization
 [Dd]etokenizer?s?
 [Dd]ict(s)?
+Distributed's
 docstring(s)?
 endblock
 endfor
@@ -34,6 +35,8 @@ joblib
 [Vv]ision LMs
 admin
 agentic
+allgather
+allreduce
 Alibaba
 Alpaca
 Anyscale
@@ -71,6 +74,7 @@ Flink
 g[Rr][Pp][Cc]
 GGUF
 GKE
+GLOO
 GPT
 GPTQ
 GPU(s)?
@@ -94,6 +98,7 @@ MLOps
 namespace
 NER
 Nsight
+num
 NumPy
 NVIDIA
 NVLink
@@ -111,6 +116,8 @@ QPS
 Quantizing
 Quickstarts
 Qwen
+recv
+reduce_scatter
 retrigger
 RISECamp
 RLHF
@@ -140,3 +147,4 @@ verl
 VM(s)?
 VPC(s)?
 VS Code
+workspace's

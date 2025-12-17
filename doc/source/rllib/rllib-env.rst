@@ -66,7 +66,7 @@ action choices eventually maximize the cumulative reward over the agent's lifeti
     :align: left
 
     **Single-agent setup:** One agent lives in the environment and takes actions computed by a single policy.
-    The mapping from agent to policy is fixed ("default_agent" maps to "default_policy").
+    The mapping from agent to policy is fixed (``"default_agent"`` maps to ``"default_policy"``).
     See :ref:`Multi-Agent Environments <rllib-multi-agent-environments-doc>` for how this setup generalizes in the multi-agent case.
 
 
@@ -91,7 +91,7 @@ this `SimpleCorridor example
 
 For more details on building a custom `Farama Gymnasium
 <https://gymnasium.farama.org/>`__ environment, see the
-`gymnasium.Env class definition <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__.
+`Gymnasium Env class definition <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__.
 
 For **multi-agent** training, see :ref:`RLlib's multi-agent API and supported third-party APIs <rllib-multi-agent-environments-doc>`.
 
@@ -101,7 +101,7 @@ Configuring Environments
 ------------------------
 
 To specify which RL environment to train against, you can provide either a string name or a
-Python class that has to subclass `gymnasium.Env <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__.
+Python class that has to subclass `Gymnasium Env <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__.
 
 Specifying by String
 ~~~~~~~~~~~~~~~~~~~~
@@ -139,8 +139,8 @@ For example:
     * `MuJoCo <https://gymnasium.farama.org/environments/mujoco/>`__
     * `Box2D <https://gymnasium.farama.org/environments/box2d/>`__
 
-Specifying by Subclass of gymnasium.Env
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Specifying by subclass of ``gymnasium.Env``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you're using a custom subclass of `gymnasium.Env class <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__,
 you can pass the class itself rather than a registered string. Your subclass must accept
@@ -259,7 +259,7 @@ For example:
 
     When using logging within an environment, the configuration must be done
     inside the environment (running within Ray workers). Pre-Ray logging
-    configurations will be ignored. Use the following code to connect to Ray's
+    configurations are ignored. Use the following code to connect to Ray's
     logging instance:
 
     .. testcode::

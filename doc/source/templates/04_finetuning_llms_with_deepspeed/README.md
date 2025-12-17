@@ -1,21 +1,21 @@
-# Fine-tuning Llama-2 series models with Deepspeed, Accelerate, and Ray Train TorchTrainer
+# Fine-tuning Llama-2 series models with DeepSpeed, Accelerate, and Ray Train TorchTrainer
 | Template Specification | Description |
 | ---------------------- | ----------- |
-| Summary | This template, demonstrates how to perform fine-tuning (full parameter or LoRA) for Llama-2 series models (7B, 13B, and 70B) using TorchTrainer with the DeepSpeed ZeRO-3 strategy. |
-| Time to Run | 1 epoch (3.5M tokens) training wall-clock time: ~14 min. for 7B, ~26 min. for 13B, and ~190 min. for 70B (see the setup details below)  |
-| Minimum Compute Requirements | 16xg5.4xlarge for worker nodes for 7B model, 4xg5.12xlarge nodes for 13B model, and 4xg5.48xlarge (or 2xp4de.24xlarge) nodes for 70B|
+| Summary | This template, demonstrates how to perform fine-tuning (full parameter or LoRA) for Llama-2 series models (`7B`, `13B`, and `70B`) using TorchTrainer with the DeepSpeed ZeRO-3 strategy. |
+| Time to Run | 1 epoch (3.5M tokens) training wall-clock time: ~14 min. for `7B`, ~26 min. for `13B`, and ~190 min. for `70B` (see the setup details below)  |
+| Minimum Compute Requirements | 16xg5.4xlarge for worker nodes for `7B` model, 4xg5.12xlarge nodes for `13B` model, and 4xg5.48xlarge (or 2xp4de.24xlarge) nodes for `70B`|
 | Cluster Environment | This template uses a Docker image built on top of the latest Anyscale-provided Ray image using Python 3.9: [`anyscale/ray:latest-py39-cu118`](https://docs.anyscale.com/reference/base-images/overview?utm_source=ray_docs&utm_medium=docs&utm_campaign=finetuning_llms). |
 
 ## Getting Started
 
-For a full-parameter fine-tuning of 7B models, set up a cluster on AWS with the following settings:
+For a full-parameter fine-tuning of `7B` models, set up a cluster on AWS with the following settings:
 
 |            | num | instance type | GPU per node | GPU Memory | CPU Memory |
 |------------|-----|---------------|--------------|------------|------------|
 | Head node  | 1   | m5.xlarge   | -     | -     | -     |
 | Worker node| 16  | g5.4xlarge    | 1 x A10G     | 24 GB      | 64 GB      |
 
-And launch the following script to fine-tune LLaMA 2 7B:
+And launch the following script to fine-tune LLaMA 2 `7B`:
 
 ```
 ./run_llama_ft.sh --size=7b --as-test
@@ -23,7 +23,7 @@ And launch the following script to fine-tune LLaMA 2 7B:
 
 The flag `--as-test` is for demo / testing purposes as it runs through only one forward and backward pass of the model. The model loading, and remote checkpointing would still run. 
 
-Similarly for 13B you need a different compute config. 
+Similarly for `13B` you need a different compute config. 
 
 |            | num | instance type | GPU per node | GPU Memory | CPU Memory |
 |------------|-----|---------------|--------------|------------|------------|
@@ -34,15 +34,15 @@ Similarly for 13B you need a different compute config.
 ./run_llama_ft.sh --size=13b [--as-test]
 ```
 
-## What is happening under the hood?
+## What's happening under the hood?
 
-### Downloading the pre-trained checkpoint on to all GPU nodes. 
+### Downloading the pre-trained checkpoint on to all GPU nodes 
 
-The pre-trained models for these models is quite large (12.8G for 7B model and 128G for 70B model). In order to make loading these models faster, we have mirrored the weights on to an AWS S3 bucket which can result in up 10GB/s download speed if the aws configs are setup correctly. 
+The pre-trained models for these models is quite large (12.8G for `7B` model and 128G for `70B` model). To make loading these models faster, the weights have been mirrored on to an AWS S3 bucket which can result in up to `10 GB/s` download speed if the AWS configs are setup correctly. 
 
 ### Cloud storage
 
-Similarly the checkpoints during training can be quite large and we would like to be able to save those checkpoints to the familiar huggingface format so that we can serve it conveniently. The fine-tuning script in this template uses Ray Train Checkpointing to sync the checkpoints created by each node back to a centralized cloud storage on AWS S3. The final file structure for each checkpoint will have a look similar to the following structure:
+Similarly the checkpoints during training can be quite large. The fine-tuning script in this template uses Ray Train Checkpointing to sync the checkpoints created by each node back to a centralized cloud storage on AWS S3. The final file structure for each checkpoint will have a look similar to the following structure:
 
 ```
 aws s3 ls s3://<bucket_path>/checkpoint_00000

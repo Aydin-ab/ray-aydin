@@ -5,7 +5,7 @@ assess_quality
 [Dd]ata('s)?
 [Dd]atasource(s)?
 [Dd]iscretizer(s)?
-docstrings
+
 dtype
 FLAC
 [Gg]roup[bB]y

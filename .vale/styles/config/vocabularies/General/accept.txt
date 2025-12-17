@@ -1,6 +1,7 @@
 # Use 'API' judiciously: https://developers.google.com/style/word-list#api.
 [Aa]pplication
 [Aa]sync
+ASIO
 [Aa]utoscaler
 autosummary
 [Cc]odec
@@ -11,7 +12,6 @@ autosummary
 [Dd]etokenizer?s?
 [Dd]ict(s)?
 Distributed's
-docstring(s)?
 endblock
 endfor
 endif
@@ -73,7 +73,8 @@ dev to prod
 [d|D]isable
 DLinear
 Dockerfile
-docstrings
+(?i)docstrings
+docstring
 DPO
 EKS
 ETDataset
@@ -163,3 +164,30 @@ VM(s)?
 VPC(s)?
 VS Code
 workspace's
+valgrind
+perftools
+(?i)gdb
+tmux
+rebase
+pydoc
+[Bb]azel
+kwargs
+[Ee]sbonio
+vscode
+neovim
+autodoc
+toctree
+literalinclude
+Hyperopt
+ipynb
+microcheck
+Buildkite
+pytest
+(?i)whitepapers?
+dind
+Redhat
+Cython
+microbenchmark
+microbenchmarks
+[Rr]ST
+JDK

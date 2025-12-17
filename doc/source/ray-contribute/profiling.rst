@@ -8,8 +8,8 @@ This guide helps contributors to the Ray project analyze Ray performance.
 Getting a stack trace of Ray C++ processes
 ------------------------------------------
 
-You can use the following GDB command to view the current stack trace of any
-running Ray process (e.g., raylet). This can be useful for debugging 100% CPU
+You can use the following gdb command to view the current stack trace of any
+running Ray process (for example, raylet). This can be useful for debugging 100% CPU
 utilization or infinite loops (simply run the command a few times to see what
 the process is stuck on).
 
@@ -161,4 +161,4 @@ References
 
 - The `pprof documentation <http://goog-perftools.sourceforge.net/doc/cpu_profiler.html>`_.
 - A `Go version of pprof <https://github.com/google/pprof>`_.
-- The `gperftools <https://github.com/gperftools/gperftools>`_, including libprofiler, tcmalloc, and other useful tools.
+- The `gperftools <https://github.com/gperftools/gperftools>`_, including `libprofiler`, `tcmalloc`, and other useful tools.

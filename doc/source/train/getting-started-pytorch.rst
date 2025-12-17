@@ -16,7 +16,7 @@ Learn how to:
 Quickstart
 ----------
 
-For reference, the final code will look something like the following:
+For reference, the final code looks something like the following:
 
 .. testcode::
     :skipif: True
@@ -259,8 +259,8 @@ See :ref:`data-ingest-torch`.
 
 .. note::
     If you already manually set up your ``DataLoader`` with a ``DistributedSampler``,
-    :meth:`~ray.train.torch.prepare_data_loader` will not add another one, and will
-    respect the configuration of the existing sampler.
+    :meth:`~ray.train.torch.prepare_data_loader` won't add another one, and respects
+    the configuration of the existing sampler.
 
 .. note::
     :class:`~torch.utils.data.distributed.DistributedSampler` does not work with a

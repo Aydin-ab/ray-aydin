@@ -62,7 +62,7 @@ Colab
 configs
 CPU(s)?
 CRD(s)?
-DeepSpeed
+(?i)DeepSpeed
 deserialization
 deserialization
 deserialize

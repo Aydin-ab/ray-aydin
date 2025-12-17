@@ -26,7 +26,7 @@ You can also specify the input argument for `train_func` as a dictionary via the
 
     Avoid passing large data objects through `train_loop_config` to reduce the
     serialization and deserialization overhead. Instead, it's preferred to
-    initialize large objects (e.g. datasets, models) directly in `train_func`.
+    initialize large objects (for example, datasets, models) directly in `train_func`.
 
     .. code-block:: diff
 

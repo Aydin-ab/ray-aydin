@@ -205,6 +205,6 @@ Example:
     # Capture the stack trace upon method invocation.
     counter.increment.remote()
 
-This document outlines common problems encountered when using Ray along with potential solutions. If you encounter additional issues, please report them.
+This document outlines common problems encountered when using Ray along with potential solutions. If you encounter additional issues, report them.
 
 .. _`let us know`: https://github.com/ray-project/ray/issues

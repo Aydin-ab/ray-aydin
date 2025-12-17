@@ -178,7 +178,6 @@ neovim
 autodoc
 toctree
 literalinclude
-Hyperopt
 ipynb
 microcheck
 Buildkite

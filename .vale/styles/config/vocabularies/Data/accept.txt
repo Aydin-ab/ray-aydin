@@ -5,7 +5,6 @@ assess_quality
 [Dd]ata('s)?
 [Dd]atasource(s)?
 [Dd]iscretizer(s)?
-
 dtype
 FLAC
 [Gg]roup[bB]y
@@ -39,7 +38,6 @@ Spotify('s)?
 TFRecord(s)?
 UDF(s)?
 VLM(s)?
-XGBoost
 YOLO
 [Ss]harding
 [Ss]harded

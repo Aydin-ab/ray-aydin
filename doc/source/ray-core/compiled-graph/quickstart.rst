@@ -128,7 +128,7 @@ First, pass ``enable_async=True`` to the ``dag.experimental_compile()``:
     :start-after: __cgraph_async_compile_start__
     :end-before: __cgraph_async_compile_end__
 
-Next, use `execute_async` to invoke the Compiled Graph. Calling ``await`` on ``execute_async`` will return once
+Next, use `execute_async` to invoke the Compiled Graph. Calling ``await`` on ``execute_async`` returns once
 the input has been submitted, and it returns a future that can be used to get the result. Finally, 
 use `await` to get the result of the Compiled Graph.
 

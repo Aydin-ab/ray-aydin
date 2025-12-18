@@ -94,7 +94,7 @@ Karpenter
 KServe
 KTO
 kubectl
-Kubernetes
+[Kk]ubernetes
 Kueue
 LLMServer
 LMs
@@ -118,7 +118,7 @@ open-source
 PDB
 Perfetto
 (?i)pid
-pipelining
+[Pp]ipelining
 Podman
 preemptible
 pretraining
@@ -185,7 +185,6 @@ pytest
 dind
 Redhat
 Cython
-microbenchmark
-microbenchmarks
+[mM]icrobenchmarks?
 [Rr]ST
 JDK

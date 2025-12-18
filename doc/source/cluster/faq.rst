@@ -29,8 +29,8 @@ On the other hand, you can run the same job multiple times using the same cluste
     A Ray :ref:`namespace <namespaces-guide>` is just a logical grouping of jobs and named actors. Unlike a Kubernetes namespace, it doesn't provide any other multi-tenancy functions like resource quotas.
 
 
-I have multiple Ray users. What's the right way to deploy Ray for them?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How should you deploy Ray for multiple Ray users?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Start a Ray cluster for each user to isolate their workloads.
 
@@ -66,7 +66,7 @@ debugging routing issues.
 
 You may also see failures in the log like:
 
-    This node has an IP address of xx.xx.xx.xx, while we cannot find the
+    This node has an IP address of xx.xx.xx.xx, while the system can't find the
     matched Raylet address. This may come from when you connect the Ray
     cluster with a different IP address or connect a container.
 
@@ -91,13 +91,13 @@ reported are as follows:
 
 .. _`known OpenBLAS limitation`: http://www.openmathlib.org/OpenBLAS/docs/faq/#how-can-i-use-openblas-in-multi-threaded-applications
 
-Where does my Ray Job entrypoint script run? On the head node or worker nodes?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Where does the Ray Job entrypoint script run? On the head node or worker nodes?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, jobs submitted using the :ref:`Ray Job API <jobs-quickstart>` run
 their `entrypoint` script on the head node. You can change this by specifying
 any of the options `--entrypoint-num-cpus`, `--entrypoint-num-gpus`,
 `--entrypoint-resources` or `--entrypoint-memory` to `ray job submit`, or the
 corresponding arguments if using the Python SDK. If these are specified, the
-job entrypoint will be scheduled on a node that has the requested resources
+job entrypoint is scheduled on a node that has the requested resources
 available.

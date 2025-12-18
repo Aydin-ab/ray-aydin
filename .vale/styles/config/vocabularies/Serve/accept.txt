@@ -7,7 +7,7 @@ LMCache
 [Uu]pscales
 Arize
 Promtail
-flamegraph
+[Ff]lamegraph
 explainability
 transcoding
 enqueues

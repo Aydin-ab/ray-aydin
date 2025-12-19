@@ -19,7 +19,7 @@ Bundles
 ~~~~~~~
 
 A **bundle** is a collection of "resources." It could be a single resource, ``{"CPU": 1}``, or a group of resources, ``{"CPU": 1, "GPU": 4}``.
-A bundle is a unit of reservation for placement groups. "Scheduling a bundle" means the system finds a node that fits the bundle and reserves the resources specified by the bundle.
+A bundle is a unit of reservation for placement groups. "Scheduling a bundle" means Ray finds a node that fits the bundle and reserves the resources specified by the bundle.
 A bundle must be able to fit on a single node on the Ray cluster. For example, if you only have an 8 CPU node, and if you have a bundle that requires ``{"CPU": 9}``, this bundle can't be scheduled.
 
 Placement Group

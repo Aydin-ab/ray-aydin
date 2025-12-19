@@ -42,7 +42,7 @@ The pre-trained models for these models is quite large (12.8G for `7B` model and
 
 ### Cloud storage
 
-Similarly the checkpoints during training can be quite large. The fine-tuning script in this template uses Ray Train Checkpointing to sync the checkpoints created by each node back to a centralized cloud storage on AWS S3. The final file structure for each checkpoint looks similar to the following structure:
+Similarly, the checkpoints during training can be quite large, and it would be useful to save those checkpoints in the familiar Hugging Face format for convenient serving. The fine-tuning script in this template uses Ray Train Checkpointing to sync the checkpoints created by each node back to a centralized cloud storage on AWS S3. The final file structure for each checkpoint looks similar to the following structure:
 
 ```
 aws s3 ls s3://<bucket_path>/checkpoint_00000

@@ -64,11 +64,17 @@ The most likely cause is that the worker node can't access the IP address
 given. You can use ``ip route get xx.xx.xx.xx`` on the worker node to start
 debugging routing issues.
 
+.. vale Google.We = NO
+.. vale Google.Contractions = NO
+
 You may also see failures in the log like:
 
-    This node has an IP address of xx.xx.xx.xx, while the system can't find the
+    This node has an IP address of xx.xx.xx.xx, while we cannot find the
     matched Raylet address. This may come from when you connect the Ray
     cluster with a different IP address or connect a container.
+
+.. vale Google.We = YES
+.. vale Google.Contractions = YES
 
 The cause of this error may be the head node overloading with too many simultaneous
 connections. The solution for this problem is to start the worker nodes more slowly.

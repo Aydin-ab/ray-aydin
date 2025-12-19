@@ -315,7 +315,7 @@ If you see repeated differences in fields that should be managed by controllers 
 
 The `ignoreDifferences` section in the RayCluster Application configuration tells ArgoCD which fields to ignore. Without this setting, ArgoCD, and the Ray Autoscaler may conflict, resulting in unexpected behavior when requesting workers dynamically (for example, using `ray.autoscaler.sdk.request_resources`). Specifically, when requesting N workers, the Autoscaler might not spin up the expected number of workers because ArgoCD could revert the replica count back to the original value defined in the Application manifest.
 
-The recommended approach is to use `jsonPointers`, which automatically handles any number of worker groups:
+The recommended approach is to use `jqPathExpressions`, which automatically handles any number of worker groups:
 
 ```yaml
 ignoreDifferences:

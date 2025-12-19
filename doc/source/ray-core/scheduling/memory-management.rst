@@ -243,8 +243,7 @@ In the output of ``ray memory``, the second object displays as a normal ``LOCAL_
 Memory Aware Scheduling
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-By default, Ray doesn't take into account the potential memory usage of a task or actor when scheduling. This is simply because it can't estimate ahead of time how much memory is required. It's recommended to specify memory requirements if you know them:
-
+By default, Ray doesn't take into account the potential memory usage of a task or actor when scheduling. This is simply because it can't estimate ahead of time how much memory is required. However, if you know how much memory a task or actor requires, you can specify it in the resource requirements of its ``ray.remote`` decorator to enable memory-aware scheduling:
 .. important::
 
   Specifying a memory requirement doesn't impose any limits on memory usage. The requirements are used for admission control during scheduling only (similar to how CPU scheduling works in Ray). It's up to the task itself to not use more memory than it requested.

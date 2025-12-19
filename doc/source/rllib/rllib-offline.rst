@@ -211,7 +211,7 @@ You use these data in the next example to train a new policy through Offline RL 
     # remaining episodes in the `EnvRunner`s buffer isn't written to disk.
     algo.stop()
 
-.. note:: RLlib formats The stored episode data as ``binary``. Each episode is converted into its dictionary representation and serialized using ``msgpack-NumPy``,
+.. note:: RLlib formats The stored episode data as ``binary``. Each episode is converted into its dictionary representation and serialized using ``msgpack-numpy``,
     ensuring version compatibility.
 
 RLlib's  recording process is efficient because it utilizes multiple :py:class:`~ray.rllib.offline.offline_env_runner.OfflineSingleAgentEnvRunner` instances during

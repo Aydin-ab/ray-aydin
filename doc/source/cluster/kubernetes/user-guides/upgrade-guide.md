@@ -38,7 +38,7 @@ Due to reliability and security implications of webhooks, KubeRay doesn't suppor
 
 To upgrade the KubeRay version, follow these steps in order:
 1. Upgrade the CRD manifest, containing new fields added to the v1 CRDs.
-2. Upgrade the KubeRay-operator image to the new version.
+2. Upgrade the kuberay-operator image to the new version.
 3. Verify the success of the upgrade.
 
 The following is an example of upgrading KubeRay from v1.3.X to v1.4.0:

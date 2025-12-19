@@ -91,7 +91,7 @@ this `SimpleCorridor example
 
 For more details on building a custom `Farama Gymnasium
 <https://gymnasium.farama.org/>`__ environment, see the
-`Gymnasium Env class definition <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__.
+`gymnasium.Env class definition <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__.
 
 For **multi-agent** training, see :ref:`RLlib's multi-agent API and supported third-party APIs <rllib-multi-agent-environments-doc>`.
 
@@ -101,7 +101,7 @@ Configuring Environments
 ------------------------
 
 To specify which RL environment to train against, you can provide either a string name or a
-Python class that has to subclass `Gymnasium Env <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__.
+Python class that has to subclass `gymnasium.Env <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__.
 
 Specifying by String
 ~~~~~~~~~~~~~~~~~~~~
@@ -146,7 +146,7 @@ Specifying by subclass of gymnasium.Env
 
 .. vale Google.Spacing = YES
 
-If you're using a custom subclass of `gymnasium Env class <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__,
+If you're using a custom subclass of `gymnasium.Env class <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__,
 you can pass the class itself rather than a registered string. Your subclass must accept
 a single ``config`` argument in its constructor (which may default to `None`).
 

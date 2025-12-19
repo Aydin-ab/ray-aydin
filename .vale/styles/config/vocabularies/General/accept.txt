@@ -47,7 +47,7 @@ allgather
 allreduce
 Alibaba
 Alpaca
-Anyscale
+[Aa]nyscale
 API(s)?
 ARM
 [Aa]sync

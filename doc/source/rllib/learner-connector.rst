@@ -48,7 +48,7 @@ responsible for compiling the train batch for the :py:class:`~ray.rllib.core.rl_
     :py:meth:`~ray.rllib.core.rl_module.rl_module.RLModule.forward_train` method of the :py:class:`~ray.rllib.core.rl_module.rl_module.RLModule`.
 
 When calling the Learner connector pipeline, a transformation from a list of :ref:`Episode objects <single-agent-episode-docs>` to an
-``RLModule``-readable tensor batch, also referred to as the "train batch", takes place and the :py:class:`~ray.rllib.core.learner.learner.Learner` actor
+``RLModule``-readable tensor batch, also referred to as the "train batch," takes place and the :py:class:`~ray.rllib.core.learner.learner.Learner` actor
 sends the output of the pipeline directly into the
 :py:meth:`~ray.rllib.core.rl_module.rl_module.RLModule.forward_train` method of the :py:class:`~ray.rllib.core.rl_module.rl_module.RLModule`.
 

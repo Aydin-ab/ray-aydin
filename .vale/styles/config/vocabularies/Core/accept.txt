@@ -6,14 +6,13 @@ ANSI
 tqdm
 maxBytes
 backupCount
-DAG
 NCCL
 RPC
 onboarding
 microbatching
 miniforge
 conda
-Nightlies
+[Nn]ightlies
 AUR
 neuron_cores
 mutex
@@ -49,3 +48,10 @@ METAX
 POSIX
 RSS
 SHR
+classpath
+(?i)uv
+(?i)gloo
+[Pp]erfetto
+(?i)dag
+ray\.kill
+[Kk]ill

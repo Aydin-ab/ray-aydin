@@ -112,7 +112,7 @@ Tasks and Actors are grouped and nested by default. You can see the nested entri
 Tasks and Actors are grouped and nested using the following criteria:
 
 - All Tasks and Actors are grouped together. View individual entries by expanding the corresponding row.
-- Tasks are grouped by their ``name`` attribute (e.g., ``task.options(name="<name_here>").remote()``).
+- Tasks are grouped by their ``name`` attribute (for example, ``task.options(name="<name_here>").remote()``).
 - Child Tasks (nested Tasks) are nested under their parent Task's row.
 - Actors are grouped by their class name.
 - Child Actors (Actors created within an Actor) are nested under their parent Actor's row.
@@ -237,7 +237,7 @@ Use the Actors view to see the logs for an Actor and which Job created the Actor
     </div>
 
 The information for up to 100000 dead Actors is stored.
-Override this value with the `RAY_maximum_gcs_destroyed_actor_cached_count` environment variable
+Override this value with the ``RAY_maximum_gcs_destroyed_actor_cached_count`` environment variable
 when starting Ray.
 
 Actor profiling

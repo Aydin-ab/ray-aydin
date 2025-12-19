@@ -14,7 +14,7 @@ This feature augments the familiar Ray :class:`ObjectRef <ray.ObjectRef>` API by
 
 - Keeping GPU data in GPU memory until a transfer is necessary
 - Avoiding expensive serialization and copies to and from the Ray object store
-- Using efficient data transports like collective communication libraries (`GLOO <https://github.com/pytorch/gloo>`__ or `NCCL <https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html>`__) or point-to-point RDMA (via `NVIDIA's NIXL <https://github.com/ai-dynamo/nixl>`__) to transfer data directly between devices, including both CPU and GPUs
+- Using efficient data transports like collective communication libraries (`GLOO <https://github.com/pytorch/gloo>`__ or `NCCL <https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html>`__) or point-to-point RDMA (using `NVIDIA's NIXL <https://github.com/ai-dynamo/nixl>`__) to transfer data directly between devices, including both CPU and GPUs
 
 .. note::
    RDT is currently in **alpha** and doesn't support all Ray Core APIs yet. Future releases may introduce breaking API changes. See the :ref:`limitations <limitations>` section for more details.
@@ -131,7 +131,7 @@ For example:
 
 .. note::
     Ray only keeps a reference to the tensor created by the user, so the tensor objects are *mutable*.
-    If ``sender.sum`` were to modify the tensor in the above example, the changes would also be seen by ``receiver.sum``.
+    If ``sender.sum`` were to modify the tensor in the preceding example, the changes would also be seen by ``receiver.sum``.
     This differs from the normal Ray Core API, which always makes an immutable copy of data returned by actors.
 
 
@@ -211,7 +211,7 @@ Usage with NIXL (CPUs or NVIDIA GPUs)
 Installation
 ^^^^^^^^^^^^
 
-For maximum performance, run the `install_gdrcopy.sh <https://github.com/ray-project/ray/blob/master/doc/tools/install_gdrcopy.sh>`__ script (for example, ``install_gdrcopy.sh "${GDRCOPY_OS_VERSION}" "12.8" "x64"``). You can find available OS versions `here <https://developer.download.nvidia.com/compute/redist/gdrcopy/CUDA%2012.8/>`__. If `gdrcopy` isn't installed, things will still work with a plain ``pip install nixl``, just with lower performance. `nixl` and `ucx` are installed as dependencies using pip.
+For maximum performance, run the `install_gdrcopy.sh <https://github.com/ray-project/ray/blob/master/doc/tools/install_gdrcopy.sh>`__ script (for example, ``install_gdrcopy.sh "${GDRCOPY_OS_VERSION}" "12.8" "x64"``). You can find available OS versions `here <https://developer.download.nvidia.com/compute/redist/gdrcopy/CUDA%2012.8/>`__. If `gdrcopy` isn't installed, things still work with a plain ``pip install nixl``, just with lower performance. `nixl` and `ucx` are installed as dependencies using pip.
 
 Walkthrough
 ^^^^^^^^^^^

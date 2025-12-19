@@ -19,7 +19,7 @@ to get the result, either by calling ``ray.get`` or if the worker is executing
 another task that depends on the object. If the user's exception type can be subclassed,
 the raised exception is an instance of both ``RayTaskError`` and the user's exception type
 so the user can try-catch either of them. Otherwise, the wrapped exception is just
-``RayTaskError`` and the actual user's exception type can be accessed via the ``cause``
+``RayTaskError`` and the actual user's exception type can be accessed through the ``cause``
 field of the ``RayTaskError``.
 
 .. literalinclude:: ../doc_code/task_exceptions.py

@@ -11,7 +11,7 @@
 classmethods?
 CNNs?
 coeff
-config
+(?i)config
 (DQN|dqn)
 [Ee]nvs?
 expectile
@@ -40,7 +40,7 @@ prepends
 [Pp]y[Tt]orch
 pragmas?
 (RL|rl)lib
-RLlink
+(?i)RLlink
 RNN
 RLModules?
 [Rr]ollout
@@ -54,3 +54,7 @@ regularizer
 terminates?
 timesteps?
 vectorizes?
+n_step
+v_min
+v_max
+on_train_result

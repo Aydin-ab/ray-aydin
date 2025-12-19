@@ -23,7 +23,7 @@ Setting Up a PyTorch Model to Tune
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To start off, first import some dependencies.
-Import some PyTorch and TorchVision modules to help create a model and train it.
+Import some PyTorch and Torchvision modules to help create a model and train it.
 Also, import Ray Tune to help optimize the model.
 As you can see, use a so-called scheduler, in this case the ``ASHAScheduler``
 that's used for tuning the model later in this tutorial.

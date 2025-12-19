@@ -481,9 +481,9 @@ Each node type is identified by a user-specified key.
 
 The key for one of the node types in :ref:`available_node_types <cluster-configuration-available-node-types>`. This node type is used to launch the head node.
 
-If the field ``head_node_type`` is changed and an update is executed with :ref:`ray up <ray-up-doc>`, the currently running head node will
-be considered outdated. The user will receive a prompt asking to confirm scale-down of the outdated head node, and the cluster will restart with a new
-head node. Changing the :ref:`node_config<cluster-configuration-node-config>` of the :ref:`node_type<cluster-configuration-node-types-type>` with key ``head_node_type`` will also result in cluster restart after a user prompt.
+If the field ``head_node_type`` is changed and an update is executed with :ref:`ray up <ray-up-doc>`, the currently running head node is
+considered outdated. The user receives a prompt asking to confirm scale-down of the outdated head node, and the cluster restarts with a new
+head node. Changing the :ref:`node_config<cluster-configuration-node-config>` of the :ref:`node_type<cluster-configuration-node-types-type>` with key ``head_node_type`` also results in cluster restart after a user prompt.
 
 
 
@@ -1499,7 +1499,7 @@ The configuration to be used to launch the nodes on the cloud service provider. 
 ``available_node_types.<node_type_name>.node_type.resources``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The resources that a node type provides, which enables the autoscaler to automatically select the right type of nodes to launch given the resource demands of the application. The resources specified are automatically passed to the ``ray start`` command for the node via an environment variable. If not provided, Autoscaler can automatically detect them only for AWS/Kubernetes cloud providers. For more information, see also the `resource demand scheduler <https://github.com/ray-project/ray/blob/master/python/ray/autoscaler/_private/resource_demand_scheduler.py>`_
+The resources that a node type provides, which enables the autoscaler to automatically select the right type of nodes to launch given the resource demands of the application. The resources specified are automatically passed to the ``ray start`` command for the node using an environment variable. If not provided, Autoscaler can automatically detect them only for AWS/Kubernetes cloud providers. For more information, see also the `resource demand scheduler <https://github.com/ray-project/ray/blob/master/python/ray/autoscaler/_private/resource_demand_scheduler.py>`_
 
 * **Required:** Yes (except for AWS/K8s)
 * **Importance:** High

@@ -30,7 +30,7 @@ Serializing ObjectRefs
 
 Explicitly serializing `ObjectRefs` using `ray.cloudpickle` should be used as a last resort. Passing `ObjectRefs` through Ray task arguments and return values is the recommended approach.
 
-Ray `ObjectRefs` can be serialized using `ray.cloudpickle`. The `ObjectRef` can then be deserialized and accessed with `ray.get()`. Note that `ray.cloudpickle` must be used; other pickle tools are not guaranteed to work. Additionally, the process that deserializes the `ObjectRef` must be part of the same Ray cluster that serialized it.
+Ray `ObjectRefs` can be serialized using `ray.cloudpickle`. The `ObjectRef` can then be deserialized and accessed with `ray.get()`. Note that `ray.cloudpickle` must be used; other pickle tools aren't guaranteed to work. Additionally, the process that deserializes the `ObjectRef` must be part of the same Ray cluster that serialized it.
 
 When serialized, the `ObjectRef`'s value remains pinned in Ray's shared memory object store. The object must be explicitly freed by calling `ray._private.internal_api.free(obj_ref)`.
 

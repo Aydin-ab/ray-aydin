@@ -4,8 +4,8 @@
     API does not really have a signature to just describe.
 .. TODO: Reusing actors and advanced resources allocation seem ill-placed.
 
-Training in Tune (tune.Trainable, tune.report)
-=================================================
+Training in Tune (``tune.Trainable``, ``tune.report``)
+=======================================================
 
 Training can be done with either a **Function API** (:func:`tune.report() <ray.tune.report>`) or
 **Class API** (:ref:`tune.Trainable <tune-trainable-docstring>`).
@@ -179,11 +179,11 @@ Here are a few key concepts and what they look like for the Function and Class A
 ======================= =============================================== ==============================================
 Concept                 Function API                                    Class API
 ======================= =============================================== ==============================================
-Training Iteration      Increments on each `tune.report` call           Increments on each `Trainable.step` call
-Report  metrics         `tune.report(metrics)`                          Return metrics from `Trainable.step`
-Saving a checkpoint     `tune.report(..., checkpoint=checkpoint)`       `Trainable.save_checkpoint`
-Loading a checkpoint    `tune.get_checkpoint()`                         `Trainable.load_checkpoint`
-Accessing config        Passed as an argument `def train_func(config):` Passed through `Trainable.setup`
+Training Iteration      Increments on each ``tune.report`` call           Increments on each ``Trainable.step`` call
+Report  metrics         ``tune.report(metrics)``                          Return metrics from ``Trainable.step``
+Saving a checkpoint     ``tune.report(..., checkpoint=checkpoint)``       ``Trainable.save_checkpoint``
+Loading a checkpoint    ``tune.get_checkpoint()``                         ``Trainable.load_checkpoint``
+Accessing config        Passed as an argument ``def train_func(config):`` Passed through ``Trainable.setup``
 ======================= =============================================== ==============================================
 
 
@@ -196,6 +196,7 @@ to reserve extra resource slots.
 For example, if a trainable class requires 1 GPU itself, but also launches 4 actors, each using another GPU,
 then you should use :func:`tune.with_resources <ray.tune.with_resources>` like this:
 
+.. vale Google.Spacing = NO
 .. code-block:: python
    :emphasize-lines: 4-10
 
@@ -209,7 +210,7 @@ then you should use :func:`tune.with_resources <ray.tune.with_resources>` like t
         ])),
         run_config=RunConfig(name="my_trainable")
     )
-
+.. vale Google.Spacing = YES
 The ``Trainable`` also provides the ``default_resource_requests`` interface to automatically
 declare the resources per trial based on the given configuration.
 

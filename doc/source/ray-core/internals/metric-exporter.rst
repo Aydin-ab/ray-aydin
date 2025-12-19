@@ -48,7 +48,7 @@ Metric Types
 Registration Process
 ~~~~~~~~~~~~~~~~~~~~
 
-Metrics are registered lazily on first use. The `OpenTelemetryMetricRecorder` uses a singleton pattern accessible via `GetInstance() <https://github.com/ray-project/ray/blob/4ebdc0abe5e5a551625fe7f87053c7e668a6ff74/src/ray/observability/open_telemetry_metric_recorder.cc#L75>`__. When a metric is first recorded, it's automatically registered if it hasn't been registered already.
+Metrics are registered lazily on first use. The `OpenTelemetryMetricRecorder` uses a singleton pattern accessible through `GetInstance() <https://github.com/ray-project/ray/blob/4ebdc0abe5e5a551625fe7f87053c7e668a6ff74/src/ray/observability/open_telemetry_metric_recorder.cc#L75>`__. When a metric is first recorded, it's automatically registered if it hasn't been registered already.
 
 Registration methods (defined in `open_telemetry_metric_recorder.cc <https://github.com/ray-project/ray/blob/4ebdc0abe5e5a551625fe7f87053c7e668a6ff74/src/ray/observability/open_telemetry_metric_recorder.cc>`__):
 
@@ -66,7 +66,7 @@ Ray uses two different recording mechanisms depending on the metric type:
   Observable gauges store values in an intermediate map (`observations_by_name_`) until collection time. When you call `SetMetricValue() <https://github.com/ray-project/ray/blob/4ebdc0abe5e5a551625fe7f87053c7e668a6ff74/src/ray/observability/open_telemetry_metric_recorder.cc#L258>`__ for a gauge, the value is stored with its tags. During export, a callback function (`_DoubleGaugeCallback <https://github.com/ray-project/ray/blob/4ebdc0abe5e5a551625fe7f87053c7e668a6ff74/src/ray/observability/open_telemetry_metric_recorder.cc#L39>`__) is invoked by the OpenTelemetry SDK, which collects all stored values and clears the map to prevent stale data. The callback implementation is in `CollectGaugeMetricValues() <https://github.com/ray-project/ray/blob/4ebdc0abe5e5a551625fe7f87053c7e668a6ff74/src/ray/observability/open_telemetry_metric_recorder.cc#L139>`__.
 
 **Synchronous Metrics (Counters, Sums, Histograms)**
-  Synchronous metrics record values directly to their instruments without intermediate storage. When you call `SetMetricValue() <https://github.com/ray-project/ray/blob/4ebdc0abe5e5a551625fe7f87053c7e668a6ff74/src/ray/observability/open_telemetry_metric_recorder.cc#L258>`__ for these types, the value is immediately added to the counter or recorded in the histogram via `SetSynchronousMetricValue() <https://github.com/ray-project/ray/blob/4ebdc0abe5e5a551625fe7f87053c7e668a6ff74/src/ray/observability/open_telemetry_metric_recorder.cc#L281>`__.
+  Synchronous metrics record values directly to their instruments without intermediate storage. When you call `SetMetricValue() <https://github.com/ray-project/ray/blob/4ebdc0abe5e5a551625fe7f87053c7e668a6ff74/src/ray/observability/open_telemetry_metric_recorder.cc#L258>`__ for these types, the value is immediately added to the counter or recorded in the histogram using `SetSynchronousMetricValue() <https://github.com/ray-project/ray/blob/4ebdc0abe5e5a551625fe7f87053c7e668a6ff74/src/ray/observability/open_telemetry_metric_recorder.cc#L281>`__.
 
 Key Implementation Details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -48,7 +48,7 @@ Start with a sample script that can be run locally. The following script uses Ra
     ray.init()
     print(ray.get(hello_world.remote()))
 
-SDK calls are made through a ``JobSubmissionClient`` object.  To initialize the client, provide the Ray cluster head node address and the port used by the Ray Dashboard (``8265`` by default). For this example, this guide uses a local Ray cluster, but the same example works for remote Ray cluster addresses; see
+SDK calls are made through a ``JobSubmissionClient`` object. To initialize the client, provide the Ray cluster head node address and the port used by the Ray Dashboard (``8265`` by default). For this example, this guide uses a local Ray cluster, but the same example works for remote Ray cluster addresses; see
 :ref:`Using a Remote Cluster <jobs-remote-cluster>` for details on setting up port forwarding.
 
 .. code-block:: python

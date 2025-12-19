@@ -115,12 +115,12 @@ The Ray Train driver process is the process that calls ``trainer.fit()`` and is 
 
 The driver process may be interrupted due to one of the following reasons:
 
-- The run is manually interrupted by a user (for example, Ctrl+C).
+- The run is manually interrupted by a user (for example, CTRL+C).
 - The node where the driver process is running (head node) crashes (for example, out of memory, out of disk).
 - The entire cluster goes down (for example, network error affecting all nodes).
 
 In these cases, the Ray Train driver (which calls ``trainer.fit()``) needs to be launched again.
-The relaunched Ray Train driver needs to find a minimal amount of run state in order to pick up where the previous run left off.
+The relaunched Ray Train driver needs to find a minimal amount of run state to pick up where the previous run left off.
 This state includes the latest reported checkpoints, which are located at the :ref:`storage path <persistent-storage-guide>`.
 Ray Train fetches the latest checkpoint information from storage and passes it to the newly launched worker processes to resume training.
 
@@ -181,7 +181,7 @@ Consider the following example of a cluster containing a CPU head node and 2 GPU
 
     A manual cluster restart or some job submission system brings up a new Ray cluster.
     The Ray Train driver process runs on a new head node.
-    Ray Train fetches the run state information from storage at ``{storage_path}/{name}`` (e.g., ``s3://my_bucket/my_run_name``)
+    Ray Train fetches the run state information from storage at ``{storage_path}/{name}`` (for example, ``s3://my_bucket/my_run_name``)
     and passes the latest checkpoint to the newly launched worker processes to resume training.
 
 

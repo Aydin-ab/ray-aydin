@@ -112,7 +112,7 @@ problems with lots of data, use higher batch sizes, for harder problems with
 not so much data, use lower batch sizes.
 
 For **layer sizes** also try **powers of 2**. For small problems
-(for example, Cartpole), use smaller layer sizes. For larger problems, try larger ones.
+(for example, CartPole), use smaller layer sizes. For larger problems, try larger ones.
 
 For **discount factors** in reinforcement learning, sample uniformly
 between 0.9 and 1.0. Depending on the problem, a much stricter range greater than 0.97

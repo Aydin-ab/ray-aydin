@@ -23,7 +23,7 @@ Ray system memory: this is memory used internally by Ray
 
 Application memory: this is memory used by your application
   - **Worker heap**: memory used by your application (for example, in Python code or TensorFlow), best measured as the *resident set size (RSS)* of your application minus its *shared memory usage (SHR)* in commands such as ``top``. The reason you need to subtract SHR is that object store shared memory is reported by the OS as shared with each worker. Not subtracting SHR results in double counting memory usage.
-  - **Object store memory**: memory used when your application creates objects in the object store using ``ray.put`` and when it returns values from remote functions. Objects are reference counted and evicted when they fall out of scope. An object store server runs on each node. By default, when starting an instance, Ray reserves 30% of available memory. The size of the object store can be controlled by `--object-store-memory <https://docs.ray.io/en/master/cluster/cli.html#cmdoption-ray-start-object-store-memory>`_. The memory is by default allocated to ``/dev/shm`` (shared memory) for Linux. For MacOS, Ray uses ``/tmp`` (disk), which can impact the performance compared to Linux. In Ray 1.3+, objects are :ref:`spilled to disk <object-spilling>` if the object store fills up.
+  - **Object store memory**: memory used when your application creates objects in the object store using ``ray.put`` and when it returns values from remote functions. Objects are reference counted and evicted when they fall out of scope. An object store server runs on each node. By default, when starting an instance, Ray reserves 30% of available memory. The size of the object store can be controlled by ` ``--object-store-memory`` <https://docs.ray.io/en/master/cluster/cli.html#cmdoption-ray-start-object-store-memory>`_. The memory is by default allocated to ``/dev/shm`` (shared memory) for Linux. For macOS, Ray uses ``/tmp`` (disk), which can impact the performance compared to Linux. In Ray 1.3+, objects are :ref:`spilled to disk <object-spilling>` if the object store fills up.
   - **Object store shared memory**: memory used when your application reads objects using ``ray.get``. Note that if an object is already present on the node, this doesn't cause additional allocations. This allows large objects to be efficiently shared among many actors and tasks.
 
 ObjectRef Reference Counting
@@ -38,7 +38,7 @@ Debugging using 'ray memory'
 
 The ``ray memory`` command can be used to help track down what ``ObjectRef`` references are in scope and may be causing an ``ObjectStoreFullError``.
 
-Running ``ray memory`` from the command line while a Ray application is running will give you a dump of all of the ``ObjectRef`` references that are currently held by the driver, actors, and tasks in the cluster.
+Running ``ray memory`` from the command line while a Ray application is running gives you a dump of all of the ``ObjectRef`` references that are currently held by the driver, actors, and tasks in the cluster.
 
 .. code-block:: text
 
@@ -236,7 +236,7 @@ In this example, the code first creates an object using ``ray.put()``, then capt
                                                                                                                     test.py:
                                                                                                                     <module>:42
 
-In the output of ``ray memory``, we see that the second object displays as a normal ``LOCAL_REFERENCE``, but the first object is listed as ``CAPTURED_IN_OBJECT``.
+In the output of ``ray memory``, the second object displays as a normal ``LOCAL_REFERENCE``, but the first object is listed as ``CAPTURED_IN_OBJECT``.
 
 .. _memory-aware-scheduling:
 

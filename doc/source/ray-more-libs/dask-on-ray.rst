@@ -88,7 +88,7 @@ Scheduler
 .. _dask-on-ray-scheduler:
 
 The Dask-on-Ray scheduler can execute any valid Dask graph, and can be used with
-any Dask `.compute() <https://docs.dask.org/en/latest/api.html#Dask.compute>`__
+any Dask `.compute() <https://docs.dask.org/en/latest/api.html#dask.compute>`__
 call.
 Here's an example:
 
@@ -111,7 +111,7 @@ Why use Dask on Ray?
 2. If you'd like to use Dask and Ray libraries in the same application without having two different clusters.
 3. If you'd like to create data analyses using the familiar NumPy and Pandas APIs provided by Dask and execute them on a fast, fault-tolerant distributed task execution system geared towards production, like Ray.
 
-Dask-on-Ray is an ongoing project and isn't expected to achieve the same performance as using Ray directly. All `Dask abstractions <https://docs.dask.org/en/latest/user-interfaces.html>`__ should run seamlessly on top of Ray using this scheduler, so if you find that one of these abstractions doesn't run on Ray, please `open an issue <https://github.com/ray-project/ray/issues/new/choose>`__.
+Dask-on-Ray is an ongoing project and isn't expected to achieve the same performance as using Ray directly. All `Dask abstractions <https://docs.dask.org/en/latest/user-interfaces.html>`__ should run seamlessly on top of Ray using this scheduler, so if you find that one of these abstractions doesn't run on Ray, `open an issue <https://github.com/ray-project/ray/issues/new/choose>`__.
 
 Best Practice for Large Scale workloads
 ---------------------------------------
@@ -216,18 +216,18 @@ the ``ray_pretask`` and ``ray_posttask`` hooks:
 The following Ray-specific callbacks are provided:
 
    1. :code:`ray_presubmit(task, key, deps)`: Run before submitting a Ray
-      task. If this callback returns a non-`None` value, a Ray task will _not_
-      be created and this value will be used as the would-be task's result
+      task. If this callback returns a non-`None` value, a Ray task **doesn't**
+      get created and this value is used as the would-be task's result
       value.
    2. :code:`ray_postsubmit(task, key, deps, object_ref)`: Run after submitting
       a Ray task.
    3. :code:`ray_pretask(key, object_refs)`: Run before executing a Dask task
       within a Ray task. This executes after the task has been submitted,
       within a Ray worker. The return value of this task is passed to the
-      `ray_posttask` callback, if provided.
+      ``ray_posttask`` callback, if provided.
    4. :code:`ray_posttask(key, result, pre_state)`: Run after executing a Dask
       task within a Ray task. This executes within a Ray worker. This callback
-      receives the return value of the `ray_pretask` callback, if provided.
+      receives the return value of the ``ray_pretask`` callback, if provided.
    5. :code:`ray_postsubmit_all(object_refs, dsk)`: Run after all Ray tasks
       have been submitted.
    6. :code:`ray_finish(result)`: Run after all Ray tasks have finished

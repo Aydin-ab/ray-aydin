@@ -1,6 +1,6 @@
 .. _ray-out-of-band-object-ref-serialization:
 
-Anti-pattern: Serialize ray.ObjectRef out of band
+Anti-pattern: Serialize ``ray.ObjectRef`` out of band
 =================================================
 
 **Summary:** Avoid serializing ``ray.ObjectRef`` because Ray can't know when to garbage collect the underlying object.

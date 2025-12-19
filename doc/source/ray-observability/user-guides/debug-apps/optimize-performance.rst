@@ -101,7 +101,7 @@ parameter to enable native profiling.
    :align: center
    :width: 80%
 
-The profiling feature requires ``py-spy`` to be installed. If it is not installed, or if the ``py-spy`` binary does
+The profiling feature requires ``py-spy`` to be installed. If it's not installed, or if the ``py-spy`` binary does
 not have root permissions, the Dashboard prompts with instructions on how to setup ``py-spy`` correctly:
 
 .. code-block::

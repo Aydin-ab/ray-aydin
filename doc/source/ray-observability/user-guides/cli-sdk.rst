@@ -344,7 +344,7 @@ you can use ``list`` or ``get`` APIs to get more details for an individual abnor
 
             {'cluster': {'summary': {'disabled': {'total_objects': 6, 'total_size_mb': 0.0, 'total_num_workers': 3, 'total_num_nodes': 1, 'task_state_counts': {'SUBMITTED_TO_WORKER': 2, 'FINISHED': 2, 'NIL': 2}, 'ref_type_counts': {'LOCAL_REFERENCE': 2, 'ACTOR_HANDLE': 4}}}, 'total_objects': 6, 'total_size_mb': 0.0, 'callsite_enabled': False, 'summary_by': 'callsite'}}
 
-See :ref:`state CLI reference <state-api-cli-ref>` for more details about ``ray summary`` command.
+See :ref:`state CLI reference <state-api-cli-ref>` for more details about the ``ray summary`` command.
 
 
 List the states of all entities of certain type
@@ -352,7 +352,7 @@ List the states of all entities of certain type
 
 Get a list of resources. Possible resources include:
 
-- :ref:`Actors <actor-guide>`, for example, Actor ID, State, PID, death_cause (:class:`output schema <ray.util.state.common.ActorState>`)
+- :ref:`Actors <actor-guide>`, for example, Actor ID, State, PID, ``death_cause`` (:class:`output schema <ray.util.state.common.ActorState>`)
 - :ref:`Tasks <ray-remote-functions>`, for example, name, scheduling state, type, runtime env info (:class:`output schema <ray.util.state.common.TaskState>`)
 - :ref:`Objects <objects-in-ray>`, for example, object ID, ``callsites``, reference types (:class:`output schema <ray.util.state.common.ObjectState>`)
 - :ref:`Jobs <jobs-overview>`, for example, start/end time, entrypoint, status (:class:`output schema <ray.util.state.common.JobState>`)
@@ -703,7 +703,7 @@ By default, the API prints logs from a head node.
             for line in get_log(pid=<PID>, node_ip=<NODE_IP>, follow=True):
                 print(line)
 
-See :ref:`state CLI reference<state-api-cli-ref>` for more details about ``ray logs`` command.
+See :ref:`state CLI reference<state-api-cli-ref>` for more details about the ``ray logs`` command.
 
 
 Failure Semantics

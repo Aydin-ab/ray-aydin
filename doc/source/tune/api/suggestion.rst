@@ -95,8 +95,12 @@ identifier:
 
 .. _tune-basicvariant:
 
+.. vale Google.Spacing = NO
+
 Random search and grid search (tune.search.basic_variant.BasicVariantGenerator)
 -------------------------------------------------------------------------------
+
+.. vale Google.Spacing = YES
 
 The default and most basic way to do hyperparameter search is through random and grid search.
 Ray Tune does this through the :class:`BasicVariantGenerator <ray.tune.search.basic_variant.BasicVariantGenerator>`
@@ -116,8 +120,12 @@ default if no search algorithm is passed to
 
 .. _tune-ax:
 
+.. vale Google.Spacing = NO
+
 Ax (tune.search.ax.AxSearch)
 ----------------------------
+
+.. vale Google.Spacing = YES
 
 .. autosummary::
     :nosignatures:
@@ -127,8 +135,12 @@ Ax (tune.search.ax.AxSearch)
 
 .. _bayesopt:
 
+.. vale Google.Spacing = NO
+
 Bayesian Optimization (tune.search.bayesopt.BayesOptSearch)
 -----------------------------------------------------------
+
+.. vale Google.Spacing = YES
 
 .. autosummary::
     :nosignatures:
@@ -138,8 +150,12 @@ Bayesian Optimization (tune.search.bayesopt.BayesOptSearch)
 
 .. _suggest-TuneBOHB:
 
+.. vale Google.Spacing = NO
+
 Bayesian Optimization HyperBand (tune.search.bohb.TuneBOHB)
 --------------------------------
+
+.. vale Google.Spacing = YES
 
 Bayesian Optimization HyperBand (BOHB) is an algorithm that both terminates bad trials
 and also uses Bayesian Optimization to improve the hyperparameter search.
@@ -163,8 +179,12 @@ See the `BOHB paper <https://arxiv.org/abs/1807.01774>`_ for more details.
 
 .. _tune-hebo:
 
+.. vale Google.Spacing = NO
+
 Heteroscedastic and Evolutionary Bayesian Optimisation (tune.search.hebo.HEBOSearch)
 ----------------------------------
+
+.. vale Google.Spacing = YES
 
 Heteroscedastic and Evolutionary Bayesian Optimisation (HEBO) is a Bayesian optimization library.
 .. autosummary::
@@ -175,8 +195,12 @@ Heteroscedastic and Evolutionary Bayesian Optimisation (HEBO) is a Bayesian opti
 
 .. _tune-hyperopt:
 
+.. vale Google.Spacing = NO
+
 Hyperopt (tune.search.hyperopt.HyperOptSearch)
 ----------------------------------------------
+
+.. vale Google.Spacing = YES
 
 .. autosummary::
     :nosignatures:
@@ -186,8 +210,12 @@ Hyperopt (tune.search.hyperopt.HyperOptSearch)
 
 .. _nevergrad:
 
+.. vale Google.Spacing = NO
+
 Nevergrad (tune.search.nevergrad.NevergradSearch)
 -------------------------------------------------
+
+.. vale Google.Spacing = YES
 
 .. autosummary::
     :nosignatures:
@@ -197,8 +225,12 @@ Nevergrad (tune.search.nevergrad.NevergradSearch)
 
 .. _tune-optuna:
 
+.. vale Google.Spacing = NO
+
 Optuna (tune.search.optuna.OptunaSearch)
 ----------------------------------------
+
+.. vale Google.Spacing = YES
 
 .. autosummary::
     :nosignatures:
@@ -209,8 +241,12 @@ Optuna (tune.search.optuna.OptunaSearch)
 
 .. _zoopt:
 
+.. vale Google.Spacing = NO
+
 ZOOpt (tune.search.zoopt.ZOOptSearch)
 -------------------------------------
+
+.. vale Google.Spacing = YES
 
 .. autosummary::
     :nosignatures:
@@ -220,8 +256,12 @@ ZOOpt (tune.search.zoopt.ZOOptSearch)
 
 .. _repeater:
 
+.. vale Google.Spacing = NO
+
 Repeated Evaluations (tune.search.Repeater)
 -------------------------------------------
+
+.. vale Google.Spacing = YES
 
 Use ``ray.tune.search.Repeater`` to average over multiple evaluations of the same
 hyperparameter configurations. This is useful in cases where the evaluated
@@ -244,8 +284,12 @@ runs ``repeat`` trials of the configuration. It then averages the
 
 .. _limiter:
 
+.. vale Google.Spacing = NO
+
 ConcurrencyLimiter (tune.search.ConcurrencyLimiter)
 ---------------------------------------------------
+
+.. vale Google.Spacing = YES
 
 Use ``ray.tune.search.ConcurrencyLimiter`` to limit the amount of concurrency when using a search algorithm.
 This is useful when a given optimization algorithm doesn't parallelize very well (such as a naive Bayesian Optimization).
@@ -258,8 +302,12 @@ This is useful when a given optimization algorithm doesn't parallelize very well
 
 .. _byo-algo:
 
+.. vale Google.Spacing = NO
+
 Custom Search Algorithms (tune.search.Searcher)
 -----------------------------------------------
+
+.. vale Google.Spacing = YES
 
 If you are interested in implementing or contributing a new Search Algorithm, provide the following interface:
 

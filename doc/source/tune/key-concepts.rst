@@ -248,8 +248,8 @@ Tune Schedulers
 ---------------
 
 To make your training process more efficient, you can use a :ref:`Trial Scheduler <tune-schedulers>`.
-For instance, in our ``trainable`` example minimizing a function in a training loop, we used ``tune.report()``.
-This reported `incremental` results, given a hyperparameter configuration selected by a search algorithm.
+For instance, in the ``trainable`` example minimizing a function in a training loop, ``tune.report()`` reported
+`incremental` results, given a hyperparameter configuration selected by a search algorithm.
 Based on these reported results, a Tune scheduler can decide whether to stop the trial early or not.
 If you don't specify a scheduler, Tune uses a First In First Out (FIFO) scheduler by default, which simply
 passes through the trials selected by your search algorithm in the order they were picked and doesn't perform any early stopping.

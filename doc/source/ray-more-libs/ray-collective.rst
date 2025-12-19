@@ -111,7 +111,7 @@ Installation and Importing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ray collective library is bundled with the released Ray wheel. Besides Ray, users need to install either `torch <https://pytorch.org/get-started/locally/>`_
-or `cupy <https://docs.cupy.dev/en/stable/install.html>`_ to use collective communication with the GLOO (torch.distributed.gloo) and NCCL backend, respectively.
+or `cupy <https://docs.cupy.dev/en/stable/install.html>`_ to use collective communication with the GLOO (`torch.distributed.gloo`) and NCCL backend, respectively.
 
 .. code-block:: python
 
@@ -281,7 +281,7 @@ In many cluster setups, a machine usually has more than 1 GPU;
 effectively leveraging the GPU-GPU bandwidth, such as `NVLINK <https://www.nvidia.com/en-us/data-center/nvlink/>`_\ ,
 can significantly improve communication performance.
 
-``ray.util.collective`` supports multi-GPU collective calls, in which case, a process (actor/tasks) manages more than 1 GPU (e.g., via ``ray.remote(num_gpus=4)``\ ).
+``ray.util.collective`` supports multi-GPU collective calls, in which case, a process (actor/tasks) manages more than 1 GPU (for example, through ``ray.remote(num_gpus=4)``\ ).
 Using these multi-GPU collective functions are normally more performance-advantageous than using single-GPU collective API
 and spawning the number of processes equal to the number of GPUs.
 See the API references for the signatures of multi-GPU collective APIs.

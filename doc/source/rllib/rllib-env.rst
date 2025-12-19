@@ -139,10 +139,14 @@ For example:
     * `MuJoCo <https://gymnasium.farama.org/environments/mujoco/>`__
     * `Box2D <https://gymnasium.farama.org/environments/box2d/>`__
 
-Specifying by subclass of ``gymnasium.Env``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. vale Google.Spacing = NO
 
-If you're using a custom subclass of `gymnasium.Env class <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__,
+Specifying by subclass of gymnasium.Env
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. vale Google.Spacing = YES
+
+If you're using a custom subclass of `gymnasium Env class <https://github.com/Farama-Foundation/Gymnasium/blob/main/gymnasium/core.py>`__,
 you can pass the class itself rather than a registered string. Your subclass must accept
 a single ``config`` argument in its constructor (which may default to `None`).
 

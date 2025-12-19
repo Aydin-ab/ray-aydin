@@ -22,7 +22,7 @@ These are the environment variables Ray Tune currently considers:
   if the metric wasn't reported in the result. Setting this environment variable
   to ``1`` disables this check.
 * **TUNE_DISABLE_SIGINT_HANDLER**: Ray Tune catches SIGINT signals (for example, sent by
-  Ctrl+C) to gracefully shutdown and do a final checkpoint. Setting this variable
+  CTRL+C) to gracefully shutdown and do a final checkpoint. Setting this variable
   to ``1`` disables signal handling and stops execution right away. Defaults to
   ``0``.
 * **TUNE_FORCE_TRIAL_CLEANUP_S**: By default, Ray Tune gracefully terminates trials,
@@ -54,11 +54,11 @@ These are the environment variables Ray Tune currently considers:
   will only be saved as text files to the trial directory and not printed. Defaults to ``1``.
 * **TUNE_RESULT_BUFFER_LENGTH**: Ray Tune can buffer results from trainables before they're passed
   to the driver. Enabling this might delay scheduling decisions, as trainables are speculatively
-  continued. Setting this to ``1`` disables result buffering. Cannot be used with ``checkpoint_at_end``.
+  continued. Setting this to ``1`` disables result buffering. Can't be used with ``checkpoint_at_end``.
   Defaults to disabled.
 * **TUNE_RESULT_DELIM**: Delimiter used for nested entries in
-  :class:`ExperimentAnalysis <ray.tune.ExperimentAnalysis>` dataframes. Defaults to ``.`` (but will be
-  changed to ``/`` in future versions of Ray).
+  :class:`ExperimentAnalysis <ray.tune.ExperimentAnalysis>` dataframes. Defaults to ``.`` (but changes
+  to ``/`` in future versions of Ray).
 * **TUNE_RESULT_BUFFER_MAX_TIME_S**: Similarly, Ray Tune buffers results up to ``number_of_trial/10`` seconds,
   but never longer than this value. Defaults to 100 (seconds).
 * **TUNE_RESULT_BUFFER_MIN_TIME_S**: Additionally, you can specify a minimum time to buffer results. Defaults to 0.

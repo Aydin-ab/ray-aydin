@@ -24,7 +24,6 @@ Oakes
 Galarnyk
 Kulkarni
 Pydantic
-# doc/source/serve/production-guide/config.md - servicer is a gRPC technical term
 servicer
 GNNs
 iterable
@@ -45,7 +44,7 @@ rayproject
 Xfer
 libfabric
 etcd
-hostnames
+hostnames?
 Mooncake
 tokenizer
 broadcasted
@@ -86,3 +85,12 @@ protobufs
 [Pp]rotobuf
 (?i)qps
 (?i)copy
+gpt-oss
+MNIST
+Torchvision
+sklearn
+IMDB
+downscales
+BERT
+Inferentia
+Tranium

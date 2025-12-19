@@ -214,5 +214,5 @@ Separately, actor lifetimes can be decoupled from the job, allowing an actor to 
 
 Unlike normal actors, detached actors aren't automatically garbage-collected by Ray.
 Detached actors must be manually destroyed once you are sure that they're no
-longer needed. To do this, use ``ray.kill`` to :ref:`manually terminate <ray-kill-actors>` the actor.
+longer needed. To do this, use ``ray.kill`` to :ref:`manually stop <ray-kill-actors>` the actor.
 After this call, the actor's name may be reused.

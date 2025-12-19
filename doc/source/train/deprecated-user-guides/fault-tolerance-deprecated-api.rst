@@ -51,7 +51,7 @@ allows you to resume a previously interrupted experiment from where it left off.
 
 A Train experiment may be interrupted due to one of the following reasons:
 
-- The experiment was manually interrupted (for example, Ctrl+C, or pre-empted head node instance).
+- The experiment was manually interrupted (for example, CTRL+C, or pre-empted head node instance).
 - The head node crashed (for example, OOM or some other runtime error).
 - The entire cluster went down (for example, network error affecting all nodes).
 
@@ -71,7 +71,7 @@ has been implemented.
     :end-before: __ft_initial_run_end__
 
 The results and checkpoints of the experiment are saved to the path configured by :class:`~ray.train.RunConfig`.
-If the experiment has been interrupted due to one of the reasons listed above, use this path to resume:
+If the experiment has been interrupted due to one of the reasons listed in the preceding section, use this path to resume:
 
 .. literalinclude:: ../doc_code/dl_guide.py
     :language: python

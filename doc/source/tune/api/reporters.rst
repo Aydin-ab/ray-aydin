@@ -91,8 +91,12 @@ The default reporting style can also be overridden more broadly by extending the
 
 .. currentmodule:: ray.tune
 
+.. vale Google.Spacing = NO
+
 Reporter Interface (tune.ProgressReporter)
 ------------------------------------------
+
+.. vale Google.Spacing = YES
 
 .. autosummary::
     :nosignatures:

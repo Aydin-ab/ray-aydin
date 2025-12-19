@@ -35,7 +35,7 @@ There are multiple ways to disable usage stats collection before starting a clus
 
 #. Run :ref:`ray disable-usage-stats <ray-disable-usage-stats-doc>` to disable collection for all future clusters. This won't affect currently running clusters. Under the hood, this command writes ``{"usage_stats": true}`` to the global config file ``~/.ray/config.json``.
 
-#. Set the environment variable ``RAY_USAGE_STATS_ENABLED`` to 0 (e.g., ``RAY_USAGE_STATS_ENABLED=0 ray start --head`` :ref:`command <ray-start-doc>`).
+#. Set the environment variable ``RAY_USAGE_STATS_ENABLED`` to 0 (for example, ``RAY_USAGE_STATS_ENABLED=0 ray start --head`` :ref:`command <ray-start-doc>`).
 
 #. If you're using `KubeRay <https://github.com/ray-project/kuberay/>`_, you can add ``disable-usage-stats: 'true'`` to ``.spec.[headGroupSpec|workerGroupSpecs].rayStartParams.``.
 

@@ -5,9 +5,9 @@ Object Fault Tolerance
 ======================
 
 A Ray object has both data (the value returned when calling ``ray.get``) and
-metadata (e.g., the location of the value). Data is stored in the Ray object
+metadata (for example, the location of the value). Data is stored in the Ray object
 store while the metadata is stored at the object's **owner**. The owner of an
-object is the worker process that creates the original ``ObjectRef``, e.g., by
+object is the worker process that creates the original ``ObjectRef``, for example, by
 calling ``f.remote()`` or ``ray.put()``. Note that this worker is usually a
 distinct process from the worker that creates the **value** of the object,
 except in cases of ``ray.put``.
@@ -82,8 +82,8 @@ retrieved due to application or system error. This can occur during a
 number of reasons. Here is a guide to understanding the root cause for
 different error types:
 
-- ``OwnerDiedError``: The owner of an object, i.e., the Python worker that
-  first created the ``ObjectRef`` via ``.remote()`` or ``ray.put()``, has died.
+- ``OwnerDiedError``: The owner of an object (specifically, the Python worker that
+  first created the ``ObjectRef`` using ``.remote()`` or ``ray.put()``), has died.
   The owner stores critical object metadata and an object can't be retrieved
   if this process is lost.
 - ``ObjectReconstructionFailedError``: This error is thrown if an object, or

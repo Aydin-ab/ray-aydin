@@ -62,7 +62,7 @@ Within the top k group, nodes are chosen randomly to further improve load-balanc
 
 Implementation-wise, Ray calculates a score for each node in a cluster based on the utilization of its logical resources.
 If the utilization is below a threshold (controlled by the OS environment variable ``RAY_scheduler_spread_threshold``, default is 0.5), the score is 0,
-otherwise it is the resource utilization itself (score 1 means the node is fully utilized).
+otherwise it's the resource utilization itself (a score of 1 means the node is fully utilized).
 Ray selects the best node for scheduling by randomly picking from the top k nodes with the lowest scores.
 The value of ``k`` is the max of (number of nodes in the cluster * ``RAY_scheduler_top_k_fraction`` environment variable) and ``RAY_scheduler_top_k_absolute`` environment variable.
 By default, it's 20% of the total number of nodes.

@@ -469,7 +469,7 @@ Here's an example of what the Train run output directory looks like, with the wo
 
 
 Apart from files such as checkpoints written directly to the ``storage_path``,
-Ray Train also writes some logfiles and metadata files to an intermediate
+Ray Train also writes some log files and metadata files to an intermediate
 *local staging directory* before they get persisted (copied/uploaded) to the ``storage_path``.
 The current working directory of each worker is set within this local staging directory.
 

@@ -27,7 +27,7 @@ This is mainly because MetricsLogger is designed to aggregate metrics, but not t
 **RLlib's MetricsLogger aggregation overview**: The diagram illustrates how metrics that are logged in parallel components are aggregated towards the root MetricsLogger. 
 Parallel subcomponents of :py:class:`~ray.rllib.algorithms.algorithm.Algorithm` have their own :py:class:`~ray.rllib.utils.metrics.metrics_logger.MetricsLogger` instance and use it to locally log values.
 When a component completes a distinct task, for example, an :py:class:`~ray.rllib.env.env_runner.EnvRunner` finishing a sampling request, the local metrics of the subcomponent 
-(``EnvRunner`` or ``Learner``) are "reduced", and sent downstream towards the root component (``Algorithm``).
+(``EnvRunner`` or ``Learner``) are "reduced," and sent downstream towards the root component (``Algorithm``).
 The parent component merges the received results into its own :py:class:`~ray.rllib.utils.metrics.metrics_logger.MetricsLogger`.
 Once ``Algorithm`` has completed its own cycle (:py:meth:`~ray.rllib.algorithms.algorithm.Algorithm.step` returns), it "reduces" as well for final reporting to the user or to Ray Tune.
 
@@ -97,7 +97,7 @@ use the :py:meth:`~ray.rllib.utils.metrics.metrics_logger.MetricsLogger.log_valu
 
     # Log a scalar float value under the `loss` key. By default, all logged
     # values under that key are averaged, once `reduce()` is called.
-    logger.log_value("loss", 0.01, reduce="mean", window=2)
+    logger.log_value('loss', 0.01, reduce='mean', window=2)
 
 By default, :py:class:`~ray.rllib.utils.metrics.metrics_logger.MetricsLogger` reduces values through averaging them (``reduce="mean"``).
 
@@ -115,10 +115,10 @@ For example, you can continue logging new values under the ``loss`` key:
 
 .. testcode::
 
-    logger.log_value("loss", 0.02, reduce="mean", window=2)
-    logger.log_value("loss", 0.03, reduce="mean", window=2)
-    logger.log_value("loss", 0.04, reduce="mean", window=2)
-    logger.log_value("loss", 0.05, reduce="mean", window=2)
+    logger.log_value('loss', 0.02, reduce='mean', window=2)
+    logger.log_value('loss', 0.03, reduce='mean', window=2)
+    logger.log_value('loss', 0.04, reduce='mean', window=2)
+    logger.log_value('loss', 0.05, reduce='mean', window=2)
 
 Because you specified a window of 2, :py:class:`~ray.rllib.utils.metrics.metrics_logger.MetricsLogger` only uses the last 2 values to compute the reduced result.
 You can ``peek()`` at the currently reduced result through the :py:meth:`~ray.rllib.utils.metrics.metrics_logger.MetricsLogger.peek` method:
@@ -148,7 +148,7 @@ Instead of providing a flat key, you can also log a value under some nested key 
     print(logger.peek(("some", "nested", "key")))  # expect: -1.0
 
 
-To use reduce methods, other than "mean", specify the ``reduce`` argument in
+To use reduce methods, other than ``"mean"``, specify the ``reduce`` argument in
 :py:meth:`~ray.rllib.utils.metrics.metrics_logger.MetricsLogger.log_value`:
 
 .. testcode::

@@ -75,7 +75,7 @@ For reference, the final code is as follows:
     trainer = JaxTrainer(train_func, scaling_config=scaling_config)
     result = trainer.fit()
 
-1. `train_func` is the Python code that executes on each distributed training worker.
+1. ``train_func`` is the Python code that executes on each distributed training worker.
 2. :class:`~ray.train.ScalingConfig` defines the number of distributed training workers and whether to use TPUs.
 3. :class:`~ray.train.v2.jax.JaxTrainer` launches the distributed training job.
 
@@ -249,7 +249,7 @@ Configure persistent storage
 ----------------------------
 
 Create a :class:`~ray.train.RunConfig` object to specify the path where results
-(including checkpoints and artifacts) will be saved.
+(including checkpoints and artifacts) are saved.
 
 .. testcode::
 

@@ -59,7 +59,7 @@ serve run local_dev:app
 # 2022-08-11 11:31:57,383 SUCC scripts.py:315 -- Deployed successfully.
 ```
 
-The `serve run` command blocks the terminal and can be canceled with Ctrl-C. Typically, `serve run` shouldn't be run simultaneously from multiple terminals, unless each `serve run` is targeting a separate running Ray cluster.
+The `serve run` command blocks the terminal and can be canceled with CTRL-C. Typically, `serve run` shouldn't be run simultaneously from multiple terminals, unless each `serve run` is targeting a separate running Ray cluster.
 
 Now that Serve is running, send HTTP requests to the application.
 For simplicity, just use the `curl` command to send requests from another terminal.
@@ -69,7 +69,7 @@ curl -X PUT "http://localhost:8000/?name=Ray"
 # Hello, Ray! Hello, Ray!
 ```
 
-After you're done testing, you can shut down Ray Serve by interrupting the `serve run` command (for example, with Ctrl-C):
+After you're done testing, you can shut down Ray Serve by interrupting the `serve run` command (for example, with CTRL-C):
 
 ```console
 ^C2022-08-11 11:47:19,829       INFO scripts.py:323 -- Got KeyboardInterrupt, shutting down...

@@ -100,8 +100,8 @@ For a deep chain of process creations, Raylet would do the killing step by step.
 
   raylet -> the worker -> user process A -> user process B -> user process C
 
-When the ``the worker`` dies, ``Raylet`` kills the ``user process A``, because it's not on the "known" children list. When ``user process A`` dies, ``Raylet`` kills ``user process B``, and so on.
+When the ``the worker`` dies, ``Raylet`` stops the ``user process A``, because it's not on the "known" children list. When ``user process A`` dies, ``Raylet`` stops ``user process B``, and so on.
 
-An edge case is, if the ``the worker`` is still alive but the ``user process A`` is dead, then ``user process B`` gets reparented and risks being killed. To mitigate, ``Ray`` also sets the ``the worker`` as a subreaper, so it can adopt the reparented processes. ``Core worker`` doesn't kill unknown children processes, so a user "daemon" process, for example, ``user process B`` that outlives ``user process A`` can live along. However if the ``the worker`` dies, the user daemon process gets reparented to ``raylet`` and gets killed.
+An edge case is, if the ``the worker`` is still alive but the ``user process A`` is dead, then ``user process B`` gets reparented and risks being stopped. To mitigate, ``Ray`` also sets the ``the worker`` as a subreaper, so it can adopt the reparented processes. ``Core worker`` doesn't stop unknown children processes, so a user "daemon" process, for example, ``user process B`` that outlives ``user process A`` can live along. However if the ``the worker`` dies, the user daemon process gets reparented to ``raylet`` and gets stopped.
 
 Related PR: `Use subreaper to kill unowned subprocesses in raylet. (#42992) <https://github.com/ray-project/ray/pull/42992>`_

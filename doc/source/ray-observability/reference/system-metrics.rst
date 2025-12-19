@@ -50,7 +50,7 @@ Ray exports a number of system metrics, which provide introspection into the sta
      - The number of CPU cores per node.
    * - `ray_node_gpus_utilization`
      - `instance`, `GpuDeviceName`, `GpuIndex`
-     - The GPU utilization per GPU as a percentage quantity (0..`NGPU`*100). `GpuDeviceName` is a name of a GPU device (e.g., NVIDIA A10G) and `GpuIndex` is the index of the GPU.
+     - The GPU utilization per GPU as a percentage quantity (0..`NGPU`*100). `GpuDeviceName` is a name of a GPU device (for example, NVIDIA A10G) and `GpuIndex` is the index of the GPU.
    * - `ray_node_disk_usage`
      - `instance`
      - The amount of disk space used per node, in bytes.
@@ -120,4 +120,4 @@ Metrics Semantics and Consistency
 
 Ray guarantees all its internal state metrics are *eventually* consistent even in the presence of failures--- should any worker fail, eventually the right state is reflected in the Prometheus time-series output. However, any particular metrics query isn't guaranteed to reflect an exact snapshot of the cluster state.
 
-For the `ray_tasks` and `ray_actors` metrics, you should use sum queries to plot their outputs (e.g., ``sum(ray_tasks) by (Name, State)``). The reason for this is that Ray's task metrics are emitted from multiple distributed components. Hence, there are multiple metric points, including negative metric points, emitted from different processes that must be summed to produce the correct logical view of the distributed system. For example, for a single task submitted and executed, Ray may emit  ``(submitter) SUBMITTED_TO_WORKER: 1, (executor) SUBMITTED_TO_WORKER: -1, (executor) RUNNING: 1``, which reduces to ``SUBMITTED_TO_WORKER: 0, RUNNING: 1`` after summation.
+For the `ray_tasks` and `ray_actors` metrics, you should use sum queries to plot their outputs (for example, ``sum(ray_tasks) by (Name, State)``). The reason for this is that Ray's task metrics are emitted from multiple distributed components. Hence, there are multiple metric points, including negative metric points, emitted from different processes that must be summed to produce the correct logical view of the distributed system. For example, for a single task submitted and executed, Ray may emit  ``(submitter) SUBMITTED_TO_WORKER: 1, (executor) SUBMITTED_TO_WORKER: -1, (executor) RUNNING: 1``, which reduces to ``SUBMITTED_TO_WORKER: 0, RUNNING: 1`` after summation.

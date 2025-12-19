@@ -30,7 +30,7 @@ For reference, the final code is as follows:
     trainer = TorchTrainer(train_func, scaling_config=scaling_config)
     result = trainer.fit()
 
-1. `train_func` is the Python code that executes on each distributed training worker.
+1. ``train_func`` is the Python code that executes on each distributed training worker.
 2. :class:`~ray.train.ScalingConfig` defines the number of distributed training workers and whether to use GPUs.
 3. :class:`~ray.train.torch.TorchTrainer` launches the distributed training job.
 

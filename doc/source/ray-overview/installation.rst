@@ -220,7 +220,7 @@ Ray-specific, the rest are true anywhere Windows is used):
 * Multi-node Ray clusters are untested.
 
 * Filenames are tricky on Windows and there still may be a few places where Ray
-  assumes Unix-style filenames rather than Windows ones. This can be true in downstream
+  assumes UNIX-style filenames rather than Windows ones. This can be true in downstream
   packages as well.
 
 * Performance on Windows is known to be slower since opening files on Windows
@@ -275,7 +275,7 @@ Ray can also be installed as a conda package on Linux and Windows.
   # Install Ray with minimal dependencies
   # conda install -c conda-forge ray
 
-To install Ray libraries, use ``pip`` as above or ``conda``/``mamba``.
+To install Ray libraries, use ``pip`` as in the preceding section or ``conda``/``mamba``.
 
 .. code-block:: bash
 
@@ -325,7 +325,7 @@ Images are `tagged` with the format ``{Ray version}[-{Python version}][-{Platfor
    * - nightly
      - The most recent Ray development build (a recent commit from GitHub ``master``)
 
-The optional ``Python version`` tag specifies the Python version in the image. All Python versions supported by Ray are available, e.g. ``py310``, ``py311`` and ``py312``. If unspecified, the tag points to an image of the lowest Python version that the Ray version supports.
+The optional ``Python version`` tag specifies the Python version in the image. All Python versions supported by Ray are available, for example, ``py310``, ``py311`` and ``py312``. If unspecified, the tag points to an image of the lowest Python version that the Ray version supports.
 
 The optional ``Platform`` tag specifies the platform where the image is intended for:
 

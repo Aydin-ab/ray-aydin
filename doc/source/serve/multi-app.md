@@ -111,7 +111,7 @@ $ serve run config.yaml
 > 2023-04-04 11:00:09,012 SUCC scripts.py:393 -- Submitted deploy config successfully.
 ```
 
-The `serve run` command blocks the terminal, which allows logs from Serve to stream to the console. This helps you test and debug your applications easily. If you want to change your code, you can hit Ctrl-C to interrupt the command and shutdown Serve and all its applications, then rerun `serve run`.
+The `serve run` command blocks the terminal, which allows logs from Serve to stream to the console. This helps you test and debug your applications easily. If you want to change your code, you can hit CTRL-C to interrupt the command and shutdown Serve and all its applications, then rerun `serve run`.
 
 :::{note}
 `serve run` only supports running multi-application config files. If you want to run applications by directly passing in an import path, `serve run` can only run one application import path at a time.

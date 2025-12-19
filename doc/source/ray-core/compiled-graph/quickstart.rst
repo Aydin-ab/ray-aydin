@@ -50,7 +50,7 @@ Note that there is **no** compilation happening here. This uses the same executi
     :start-after: __dag_usage_start__
     :end-before: __dag_usage_end__
 
-Next, compile the ``dag`` using the :func:`experimental_compile <ray.dag.DAGNode.experimental_compile>` API.
+Next, compile the ``DAG`` using the :func:`experimental_compile <ray.dag.DAGNode.experimental_compile>` API.
 The graph uses the same APIs for execution:
 
 .. literalinclude:: ../doc_code/cgraph_quickstart.py

@@ -180,7 +180,7 @@ things have to be kept in mind. To make this clear, consider these concepts:
 
 The control plane for the multi-node docker node provider lives in the outer container. However, ``docker compose``
 commands are executed from the connected docker-in-docker network. In the Ray OSS Buildkite environment, this is
-the ``dind-daemon`` container running on the host docker. If you e.g. mounted ``/var/run/docker.sock`` from the
+the ``dind-daemon`` container running on the host docker. If you, for example, mounted ``/var/run/docker.sock`` from the
 host instead, it would be the host docker daemon. Both are referred to as the **host daemon** from now on.
 
 The outer container modifies files that have to be mounted in the inner containers (and modified from there

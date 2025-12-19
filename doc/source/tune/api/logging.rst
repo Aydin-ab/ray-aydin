@@ -18,8 +18,12 @@ see :ref:`Trainable Logging <trainable-logging>`.
 
 .. _logger-interface:
 
+.. vale Google.Spacing = NO
+
 LoggerCallback Interface (tune.logger.LoggerCallback)
 -----------------------------------------------------
+
+.. vale Google.Spacing = YES
 
 .. autosummary::
     :nosignatures:

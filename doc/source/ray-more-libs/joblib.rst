@@ -52,7 +52,7 @@ a multi-node Ray cluster instead.
       search.fit(digits.data, digits.target)
 
 You can also set the ``ray_remote_args`` argument in ``parallel_backend`` to :func:`configure
-the Ray Actors <ray.remote>` making up the Pool. This can be used to e.g., :ref:`assign resources
+the Ray Actors <ray.remote>` making up the Pool. This can be used to, for example, :ref:`assign resources
 to Actors, such as GPUs <actor-resource-guide>`.
 
 .. code-block:: python

@@ -19,7 +19,7 @@ Bundles
 ~~~~~~~
 
 A **bundle** is a collection of "resources." It could be a single resource, ``{"CPU": 1}``, or a group of resources, ``{"CPU": 1, "GPU": 4}``.
-A bundle is a unit of reservation for placement groups. "Scheduling a bundle" means we find a node that fits the bundle and reserve the resources specified by the bundle.
+A bundle is a unit of reservation for placement groups. "Scheduling a bundle" means the system finds a node that fits the bundle and reserves the resources specified by the bundle.
 A bundle must be able to fit on a single node on the Ray cluster. For example, if you only have an 8 CPU node, and if you have a bundle that requires ``{"CPU": 9}``, this bundle can't be scheduled.
 
 Placement Group
@@ -45,7 +45,7 @@ Bundles are specified by a list of dictionaries, for example, ``[{"CPU": 1}, {"C
 - ``CPU`` corresponds to ``num_cpus`` as used in :func:`ray.remote <ray.remote>`.
 - ``GPU`` corresponds to ``num_gpus`` as used in :func:`ray.remote <ray.remote>`.
 - ``memory`` corresponds to ``memory`` as used in :func:`ray.remote <ray.remote>`
-- Other resources corresponds to ``resources`` as used in :func:`ray.remote <ray.remote>` (E.g., ``ray.init(resources={"disk": 1})`` can have a bundle of ``{"disk": 1}``).
+- Other resources corresponds to ``resources`` as used in :func:`ray.remote <ray.remote>` (for example, ``ray.init(resources={"disk": 1})`` can have a bundle of ``{"disk": 1}``).
 
 Placement group scheduling is asynchronous. The `ray.util.placement_group` returns immediately.
 

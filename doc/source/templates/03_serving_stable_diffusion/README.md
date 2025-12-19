@@ -11,7 +11,7 @@
 
 **When the workspace is up and running, start coding by clicking on the Jupyter or VS Code icon. Open the `start.ipynb` file and follow the instructions there.**
 
-By the end, you'll have an application that generates images using stable diffusion for a given prompt.
+By the end, you have an application that generates images using stable diffusion for a given prompt.
 
 The application looks something like this:
 

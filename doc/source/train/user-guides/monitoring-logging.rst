@@ -47,7 +47,7 @@ metrics from multiple workers.
 --------------------------------------------
 
 Reporting metrics with ``ray.train.report(metrics, checkpoint=None)`` from every worker writes the metrics to a Ray Tune log file (``progress.csv``, ``result.json``)
-and is accessible via the ``Result.metrics_dataframe`` on the :class:`~ray.train.Result` returned by ``trainer.fit()``.
+and is accessible through the ``Result.metrics_dataframe`` on the :class:`~ray.train.Result` returned by ``trainer.fit()``.
 
 As of Ray 2.43, this behavior is deprecated and not supported in Ray Train V2,
 which is an overhaul of Ray Train's implementation and select APIs.

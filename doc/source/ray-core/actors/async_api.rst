@@ -85,9 +85,10 @@ async frameworks like aiohttp, aioredis, etc.
 
     ...
 
-ObjectRefs as asyncio.Futures
+ObjectRefs as ``asyncio.Futures``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ObjectRefs can be translated to asyncio.Futures. This feature
+
+ObjectRefs can be translated to ``asyncio.Future`` objects. This feature
 make it possible to ``await`` on ray futures in existing concurrent
 applications.
 
@@ -143,7 +144,7 @@ for more `asyncio` patterns including timeouts and ``asyncio.gather``.
 
 .. _async-ref-to-futures:
 
-ObjectRefs as concurrent.futures.Futures
+ObjectRefs as ``concurrent.futures.Futures``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ObjectRefs can also be wrapped into ``concurrent.futures.Future`` objects. This
 is useful for interfacing with existing ``concurrent.futures`` APIs:

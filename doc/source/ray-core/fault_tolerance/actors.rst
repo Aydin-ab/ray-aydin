@@ -33,8 +33,8 @@ For example, this can happen if the actor dies immediately after executing the
 task.
 
 Ray also offers at-least-once execution semantics for actor tasks
-(``max_task_retries=-1`` or ``max_task_retries > 0``). This means that if an
-actor task is submitted to an actor that is unreachable, the system
+(``max_task_retries=-1`` or ``max_task_retries > 0``). For example, if an
+actor task is submitted to an actor that's unreachable, the system
 automatically retries the task. With this option, the system only throws a
 ``RayActorError`` to the application if one of the following occurs: (1) the
 actor's ``max_restarts`` limit has been exceeded and the actor can't be
@@ -158,7 +158,7 @@ As a best practice, if the caller gets the ``ActorUnavailableError`` error, it s
 "quarantine" the actor and stop sending traffic to the actor. It can then periodically ping
 the actor until it raises ``ActorDiedError`` or returns OK.
 
-If a task has ``max_task_retries > 0`` and it received ``ActorUnavailableError``, Ray will retry the task up to ``max_task_retries`` times. If the actor is restarting in its constructor, the task retry will fail, consuming one retry count. If there are still retries remaining, Ray will retry again after ``RAY_task_retry_delay_ms``, until all retries are consumed or the actor is ready to accept tasks. If the constructor takes a long time to run, consider increasing ``max_task_retries`` or increase ``RAY_task_retry_delay_ms``.
+If a task has ``max_task_retries > 0`` and it received ``ActorUnavailableError``, Ray retries the task up to ``max_task_retries`` times. If the actor is restarting in its constructor, the task retry fails, consuming one retry count. If there are still retries remaining, Ray retries again after ``RAY_task_retry_delay_ms``, until all retries are consumed or the actor is ready to accept tasks. If the constructor takes a long time to run, consider increasing ``max_task_retries`` or increase ``RAY_task_retry_delay_ms``.
 
 Actor method exceptions
 -----------------------
@@ -183,4 +183,4 @@ Retry behavior depends on the value you set ``retry_exceptions`` to:
 - The Actor class definition's value, for example, `@ray.remote(max_task_retries=2)` decorator. Ray ignores this value if you didn't set it.
 - The default value, `0`.
 
-For example, if a method sets `max_task_retries=5` and `retry_exceptions=True`, and the actor sets `max_restarts=2`, Ray executes the method up to 6 times: once for the initial invocation, and 5 additional retries. The 6 invocations may include 2 actor crashes. After the 6th invocation, a `ray.get` call to the result Ray ObjectRef raises the exception raised in the last invocation, or `ray.exceptions.RayActorError` if the actor crashed in the last invocation.
+For example, if a method sets `max_task_retries=5` and `retry_exceptions=True`, and the actor sets `max_restarts=2`, Ray executes the method up to 6 times: once for the initial invocation, and 5 additional retries. The 6 invocations may include 2 actor crashes. After the sixth invocation, a `ray.get` call to the result Ray ObjectRef raises the exception raised in the last invocation, or `ray.exceptions.RayActorError` if the actor crashed in the last invocation.

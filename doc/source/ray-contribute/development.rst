@@ -354,7 +354,7 @@ you commit new code changes with git. To temporarily skip pre-commit checks, use
 
    git commit -n
 
-If you encounter any issues with ``pre-commit``, please `report an issue here`_.
+If you encounter any issues with ``pre-commit``, `report an issue here`_.
 
 .. _report an issue here: https://github.com/ray-project/ray/issues/new?template=bug-report.yml
 

@@ -1,6 +1,6 @@
 .. _ray-multiprocessing:
 
-Distributed multiprocessing.Pool
+Distributed `multiprocessing.Pool`
 ================================
 
 .. _`issue on GitHub`: https://github.com/ray-project/ray/issues

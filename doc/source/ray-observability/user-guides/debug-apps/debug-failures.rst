@@ -33,7 +33,7 @@ When you call ``get`` API to the object ref, it raises an exception.
 
 In Ray, there are three types of failures. See exception APIs for more details.
 
-- **Application failures**: This means the remote task/actor fails by the user code. In this case, ``get`` API will raise the :func:`RayTaskError <ray.exceptions.RayTaskError>` which includes the exception raised from the remote process.
+- **Application failures**: This means the remote task/actor fails by the user code. In this case, ``get`` API raises the :func:`RayTaskError <ray.exceptions.RayTaskError>` which includes the exception raised from the remote process.
 - **Intentional system failures**: This means Ray is failed, but the failure is intended. For example, when you call cancellation APIs like ``ray.cancel`` (for task) or ``ray.kill`` (for actors), the system fails remote tasks and actors, but it's intentional.
 - **Unintended system failures**: This means the remote tasks and actors failed due to unexpected system failures such as processes crashing (for example, by out-of-memory error) or nodes failing.
 

@@ -387,7 +387,7 @@ class Processor:
         Args:
             stage: The stage to append.
         """
-        stage_name = type(stage).__name__
+        stage_name = stage.get_stage_name()
 
         # When a processor has multiple stages with the same type,
         # append a index suffix to the stage name to avoid conflicts.

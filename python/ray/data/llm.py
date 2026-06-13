@@ -148,6 +148,22 @@ class vLLMEngineProcessorConfig(_vLLMEngineProcessorConfig):
             concurrency, runtime_env, num_cpus, and memory. Both the legacy ``has_image`` field
             and ``prepare_image_stage`` are deprecated but still supported. Prefer to use multimodal
             processor to process multimodal data instead.
+        fuse_cpu_stages: Opt-in optimization to consolidate the CPU stages (prepare_multimodal/
+            prepare_image, chat_template, tokenize, detokenize) into a single Ray actor pool
+            instead of one pool per stage. Each separate pool can scale up to ``concurrency``
+            actors reserving ~1 CPU each, so on small, CPU-constrained GPU nodes the per-stage
+            pools can oversubscribe CPUs and split object-store memory across many operators,
+            reducing throughput; consolidating them can help. Defaults to ``False`` (one pool
+            per stage). ``True`` always fuses the pre-engine CPU stages into one pool; ``"auto"``
+            is a best-effort heuristic that fuses them when the node looks CPU-constrained.
+            ``detokenize`` (after the GPU engine) always stays separate. A one-line message is
+            logged when fusion activates.
+        stage_groups: Explicit CPU stage fusion groups, taking precedence over
+            ``fuse_cpu_stages``. Each inner list names adjacent CPU stages to fuse into one
+            actor pool, e.g. ``[["prepare_multimodal", "chat_template", "tokenize"],
+            ["detokenize"]]``. Valid names: ``"prepare_image"``, ``"prepare_multimodal"``,
+            ``"chat_template"``, ``"tokenize"``, ``"detokenize"``. A group cannot cross the GPU
+            engine boundary or include disabled stages. Stages not listed run in their own pool.
         accelerator_type: The accelerator type used by the LLM stage in a processor.
             Default to None, meaning that only the CPU will be used.
         concurrency: The number of workers for data parallelism. Default to 1.

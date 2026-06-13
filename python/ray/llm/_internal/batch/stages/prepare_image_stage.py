@@ -374,12 +374,13 @@ class PrepareImageUDF(StatefulStageUDF):
         # so the outputs here must be in order. However, it is more efficient
         # to support out-of-order outputs so that we won't be blocked by slow
         # downloaded images.
+        # Echo IDX_IN_BATCH_COLUMN from each input row (rather than a positional
+        # counter) so this UDF honors the row-index contract — required for it to be
+        # fused with other CPU stages, and a no-op in the normal in-order path.
         img_start_idx = 0
-        idx_in_batch = 0
-        for image_info_per_req in all_image_info:
+        for row, image_info_per_req in zip(batch, all_image_info):
             num_images_in_req = len(image_info_per_req)
-            ret = {self.IDX_IN_BATCH_COLUMN: idx_in_batch}
-            idx_in_batch += 1
+            ret = {self.IDX_IN_BATCH_COLUMN: row[self.IDX_IN_BATCH_COLUMN]}
             if num_images_in_req > 0:
                 images = flat_all_images[
                     img_start_idx : img_start_idx + num_images_in_req

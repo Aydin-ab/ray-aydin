@@ -272,6 +272,14 @@ class StatefulStage(BaseModel):
         description="The arguments of .map_batches(). Default {'concurrency': 1}.",
     )
 
+    def get_stage_name(self) -> str:
+        """The name used for this stage in ``Processor.list_stage_names()``.
+
+        Defaults to the class name. Composite stages (e.g. ``FusedStage``) override
+        this to advertise a descriptive, deterministic name.
+        """
+        return type(self).__name__
+
     def get_required_input_keys(self) -> Dict[str, str]:
         """The required input keys of the stage and their descriptions."""
         return {}

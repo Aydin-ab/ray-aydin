@@ -10,6 +10,7 @@ The :ref:`ray.data.llm <llm-ref>` module enables scalable batch inference on Ray
 * :ref:`Quickstart <vllm_quickstart>` - Run your first batch inference job
 * :ref:`Architecture <processor_architecture>` - Understand the processor pipeline
 * :ref:`Scaling <horizontal_scaling>` - Scale your LLM stage to multiple replicas
+* :ref:`Fusing CPU stages <fusing_cpu_stages>` - Consolidate CPU stages on small GPU nodes
 
 **Common use cases:**
 
@@ -95,6 +96,57 @@ Ray Data LLM uses a **multi-stage processor pipeline** to transform your data th
 - **Postprocess**: Your custom function that extracts and formats the final output.
 
 Each stage runs as a separate Ray actor pool, enabling independent scaling and resource allocation. All stages (CPU and GPU) use autoscaling actor pools by default, except for the ServeDeployment stage which uses a fixed pool.
+
+.. _fusing_cpu_stages:
+
+Fusing CPU stages
+-----------------
+
+By default each enabled CPU stage (``PrepareMultimodal``/``PrepareImage``, ``ChatTemplate``, ``Tokenize``, ``Detokenize``) runs as its **own** Ray actor pool, and each pool can scale up to ``concurrency`` actors that each reserve about one CPU. On a small GPU node -- for example a single-GPU instance with 8 vCPUs -- running several such pools at higher ``concurrency`` can oversubscribe the node's CPUs and split its object-store memory across many operators. Under that pressure the CPU stages contend for CPUs and object-store memory, which can lower overall throughput.
+
+The ``fuse_cpu_stages`` option **consolidates** the CPU stages into a **single actor pool** that runs them sequentially per batch. This trades per-stage parallelism for fewer competing actor pools and a larger object-store-memory share per operator -- a good trade on small, CPU-constrained nodes. It is **opt-in** (off by default) and accepts:
+
+- ``False`` (default): keep one actor pool per stage.
+- ``True``: always fuse the pre-engine CPU stages into a single pool.
+- ``"auto"``: a best-effort heuristic that fuses the pre-engine CPU stages when the node looks CPU-constrained for the pipeline, judged from the cluster's CPU count at build time. When fusion activates, a single line is logged, so the behavior is never silent.
+
+Stages **before** the GPU engine fuse into one pool; ``Detokenize`` (after the engine) stays in its own pool, because fusion never crosses the engine boundary. Your custom ``preprocess`` and ``postprocess`` functions run as Ray Data ``map`` tasks (not actor pools) and are never fused.
+
+.. code-block:: python
+
+    from ray.data.llm import vLLMEngineProcessorConfig
+
+    # Default: one actor pool per CPU stage -- fusion is OFF.
+    config = vLLMEngineProcessorConfig(
+        model_source="...",
+        # fuse_cpu_stages=False,  # the default; no need to set it
+    )
+
+    # Opt in: let Ray fuse the CPU stages when the node looks CPU-constrained.
+    config = vLLMEngineProcessorConfig(
+        model_source="...",
+        fuse_cpu_stages="auto",
+    )
+
+    # Or always fuse, regardless of node size:
+    config = vLLMEngineProcessorConfig(
+        model_source="...",
+        fuse_cpu_stages=True,
+    )
+
+**Throughput tradeoff.** Separate pools let the CPU stages pipeline independently, which helps when the node has CPUs to spare. Fusing instead minimizes resource contention, which helps when CPUs or object-store memory are the bottleneck -- typically small GPU nodes. Because the right choice depends on your model, data, and node, fusion is **off by default**; set ``fuse_cpu_stages=True`` to always consolidate, or ``"auto"`` to let Ray fuse only when the node looks CPU-constrained.
+
+For full control over grouping, set ``stage_groups`` -- a list of groups, where each group is a list of adjacent CPU stage names to fuse into one pool. Valid names are ``"prepare_image"``, ``"prepare_multimodal"``, ``"chat_template"``, ``"tokenize"``, and ``"detokenize"``. ``stage_groups`` takes precedence over ``fuse_cpu_stages``, a group can't cross the GPU engine boundary, and stages you don't list keep their own pool.
+
+.. code-block:: python
+
+    config = vLLMEngineProcessorConfig(
+        model_source="...",
+        stage_groups=[
+            ["prepare_multimodal", "chat_template", "tokenize"],
+            ["detokenize"],
+        ],
+    )
 
 .. _horizontal_scaling:
 

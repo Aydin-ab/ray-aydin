@@ -11,6 +11,7 @@ from ray.llm._internal.batch.stages.configs import (
     PrepareMultimodalStageConfig,
     TokenizerStageConfig,
 )
+from ray.llm._internal.batch.stages.fused_stage import FusedStage, FusedStageUDF
 from ray.llm._internal.batch.stages.http_request_stage import HttpRequestStage
 from ray.llm._internal.batch.stages.prepare_image_stage import PrepareImageStage
 from ray.llm._internal.batch.stages.prepare_multimodal_stage import (
@@ -23,6 +24,8 @@ from ray.llm._internal.batch.stages.vllm_engine_stage import vLLMEngineStage
 
 __all__ = [
     "StatefulStage",
+    "FusedStage",
+    "FusedStageUDF",
     "HttpRequestStage",
     "PrepareMultimodalStage",
     "ChatTemplateStage",

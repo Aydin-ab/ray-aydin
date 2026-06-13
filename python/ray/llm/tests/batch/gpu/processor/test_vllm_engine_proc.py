@@ -43,6 +43,9 @@ def test_vllm_engine_processor(
         concurrency=4,
         batch_size=64,
         max_pending_requests=111,
+        # Pin the unfused graph so this assertion is independent of the
+        # fuse_cpu_stages default; fusion is covered in test_stage_fusion.py.
+        fuse_cpu_stages=False,
         chat_template_stage=ChatTemplateStageConfig(enabled=True),
         tokenize_stage=TokenizerStageConfig(enabled=True),
         detokenize_stage=DetokenizeStageConfig(enabled=True),
@@ -250,6 +253,9 @@ def test_prepare_multimodal_stage_vllm_engine_processor(gpu_type, model_smolvlm_
         accelerator_type=gpu_type,
         concurrency=1,
         batch_size=16,
+        # Pin PrepareMultimodalStage as its own stage, independent of the
+        # fuse_cpu_stages default; fusion is covered in test_stage_fusion.py.
+        fuse_cpu_stages=False,
         prepare_multimodal_stage=PrepareMultimodalStageConfig(
             enabled=True,
             model_config_kwargs=dict(
